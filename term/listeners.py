@@ -27,6 +27,9 @@ _SWALLOW = {
 
 
 class TerminalEventListener(sublime_plugin.EventListener):
+    def on_pre_close_window(self, window):
+        manager.close_window(window)
+
     def on_close(self, view):
         if view.settings().get("terminal_view"):
             manager.close_view(view)

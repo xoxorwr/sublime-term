@@ -66,6 +66,20 @@ class TerminalOpenCommand(sublime_plugin.WindowCommand):
         return ghostty.available()
 
 
+class TerminalTogglePanelCommand(sublime_plugin.WindowCommand):
+    def run(self, cwd=None):
+        options = {"cwd": _expand(self.window, cwd) if cwd else _window_cwd(self.window)}
+        manager.toggle_panel(self.window, options)
+
+    def is_enabled(self):
+        return ghostty.available()
+
+
+class TerminalClosePanelCommand(sublime_plugin.WindowCommand):
+    def run(self):
+        manager.close_panel(self.window)
+
+
 class TerminalOpenHereCommand(sublime_plugin.WindowCommand):
     def run(self):
         manager.create(self.window, {"cwd": _window_cwd(self.window)})
@@ -135,6 +149,11 @@ class TerminalRestartCommand(sublime_plugin.TextCommand):
             "argv": session.argv,
         }
         window = session.window
+        if session.is_panel:
+            manager.remove(session)
+            window.destroy_output_panel(manager.PANEL_NAME)
+            manager.create_panel(window, options)
+            return
         manager.remove(session, close_view=True)
         manager.create(window, options)
 
@@ -142,7 +161,11 @@ class TerminalRestartCommand(sublime_plugin.TextCommand):
 class TerminalCloseCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         session = _session(self.view)
-        if session:
+        if not session:
+            return
+        if session.is_panel:
+            manager.close_panel(session.window)
+        else:
             manager.remove(session, close_view=True)
 
 

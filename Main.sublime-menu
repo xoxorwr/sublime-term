@@ -1,23 +1,60 @@
 [
     {
         "id": "tools",
-        "children":
-        [
+        "children": [
             {
                 "caption": "Terminal",
-                "children":
-                [
-                    { "caption": "New Terminal", "command": "terminal_open" },
-                    { "caption": "New Terminal Here", "command": "terminal_open_here" },
-                    { "caption": "Run Command…", "command": "terminal_run" },
-                    { "caption": "New tmux Session…", "command": "terminal_tmux" },
-                    { "caption": "-" },
-                    { "caption": "Copy", "command": "terminal_copy" },
-                    { "caption": "Paste", "command": "terminal_paste" },
-                    { "caption": "-" },
-                    { "caption": "Clear Scrollback", "command": "terminal_clear_scrollback" },
-                    { "caption": "Restart", "command": "terminal_restart" },
-                    { "caption": "Close", "command": "terminal_close" }
+                "children": [
+                    {
+                        "caption": "New Terminal",
+                        "command": "terminal_open"
+                    },
+                    {
+                        "caption": "New Terminal Here",
+                        "command": "terminal_open_here"
+                    },
+                    {
+                        "caption": "Toggle Panel",
+                        "command": "terminal_toggle_panel"
+                    },
+                    {
+                        "caption": "Close Panel",
+                        "command": "terminal_close_panel"
+                    },
+                    {
+                        "caption": "Run Command\u2026",
+                        "command": "terminal_run"
+                    },
+                    {
+                        "caption": "New tmux Session\u2026",
+                        "command": "terminal_tmux"
+                    },
+                    {
+                        "caption": "-"
+                    },
+                    {
+                        "caption": "Copy",
+                        "command": "terminal_copy"
+                    },
+                    {
+                        "caption": "Paste",
+                        "command": "terminal_paste"
+                    },
+                    {
+                        "caption": "-"
+                    },
+                    {
+                        "caption": "Clear Scrollback",
+                        "command": "terminal_clear_scrollback"
+                    },
+                    {
+                        "caption": "Restart",
+                        "command": "terminal_restart"
+                    },
+                    {
+                        "caption": "Close",
+                        "command": "terminal_close"
+                    }
                 ]
             }
         ]

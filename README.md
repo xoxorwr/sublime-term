@@ -8,6 +8,7 @@ the text remains selectable and searchable.
 ## Features
 
 - Full VT emulation from Ghostty's `libghostty-vt`
+- Tab terminals and a toggleable bottom-panel terminal
 - 16, 256 and 24-bit color (exact colors, including truecolor)
 - Scrollback with mouse-wheel and keyboard navigation
 - Native Sublime Text selection, copy and paste
@@ -44,6 +45,8 @@ Open the command palette and run one of:
 
 - `Terminal: New`
 - `Terminal: New Here`
+- `Terminal: Toggle Panel`
+- `Terminal: Close Panel`
 - `Terminal: Run Command…`
 - `Terminal: New tmux Session…`
 - `Terminal: Restart`
@@ -58,6 +61,16 @@ From the command line:
 ```sh
 subl --command terminal_open
 subl --command terminal_open_here
+subl --command terminal_toggle_panel
+```
+
+`Terminal: Toggle Panel` opens an output-panel terminal at the bottom of the
+window. Running it again hides the panel without stopping the shell. The panel
+keeps its scrollback and running process, and can be brought back with the same
+command. Bind it to a key in your user keymap if you want a shortcut:
+
+```json
+{ "keys": ["alt+`"], "command": "terminal_toggle_panel" }
 ```
 
 The default key bindings only apply while a terminal view has focus:

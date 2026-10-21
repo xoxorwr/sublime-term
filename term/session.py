@@ -37,10 +37,11 @@ def _clean_title(title: str) -> str:
 
 
 class TerminalSession:
-    def __init__(self, window, view, options):
+    def __init__(self, window, view, options, panel=False):
         self.window = window
         self.view = view
         self.options = options or {}
+        self.is_panel = panel
         self.settings = sublime.load_settings("sublime_term.sublime-settings")
         self.cwd = self.options.get("cwd") or self._default_cwd()
         self.shell = self.options.get("shell") or self.settings.get("shell") or os.environ.get("SHELL") or "/bin/bash"
@@ -103,6 +104,9 @@ class TerminalSession:
         view.set_read_only(False)
         view.set_name(self.title)
         view.assign_syntax("Packages/sublime_term/Terminal.sublime-syntax")
+        if self.is_panel:
+            settings.set("is_widget", True)
+            settings.set("terminal_panel", True)
         values = {
             "terminal_view": True,
             "terminal_mouse_tracking": False,
@@ -159,6 +163,12 @@ class TerminalSession:
         self.renderer.set_theme(
             self._theme["foreground"], self._theme["background"], self._theme["cursor"]
         )
+
+    def after_show(self):
+        if self.closed:
+            return
+        self.refresh_size(force=True)
+        self.render()
 
     def _create_terminal(self):
         self.cols, self.rows = self._measure()
