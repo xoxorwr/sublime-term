@@ -87,6 +87,18 @@ class TerminalSession:
         if self.is_panel:
             settings.set("is_widget", True)
             settings.set("terminal_panel", True)
+        prefs = sublime.load_settings("Preferences.sublime-settings")
+        editor = view.settings()
+
+        def font_value(key, fallback):
+            value = self.settings.get(key)
+            if value:
+                return value
+            value = editor.get(key)
+            if value:
+                return value
+            return prefs.get(key) or fallback
+
         values = {
             "terminal_view": True,
             "terminal_mouse_tracking": False,
@@ -121,9 +133,9 @@ class TerminalSession:
             "highlight_gutter": False,
             "highlight_line_number": False,
             "indent_guide_options": [],
-            "font_face": self.settings.get("font_face") or "monospace",
-            "font_size": self.settings.get("font_size") or 12,
-            "line_height": self.settings.get("line_height") or 1.0,
+            "font_face": font_value("font_face", "monospace"),
+            "font_size": font_value("font_size", 12),
+            "line_height": font_value("line_height", 1.0),
         }
         for key, value in values.items():
             settings.set(key, value)
