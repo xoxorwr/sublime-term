@@ -27,6 +27,17 @@ _SWALLOW = {
 
 
 class TerminalEventListener(sublime_plugin.EventListener):
+    def on_query_context(self, view, key, operator, operand, match_all):
+        if key != "sublime_term.keys":
+            return None
+        window = view.window()
+        if not window:
+            return False
+        panel = window.active_panel()
+        if panel and panel != "output.sublime_term":
+            return False
+        return True
+
     def on_pre_close_window(self, window):
         manager.close_window(window)
 

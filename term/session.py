@@ -9,26 +9,11 @@ import sublime
 from . import ghostty, keys
 from .pty import PtyProcess
 from .render import Renderer
-from .theme import manager as theme_manager
+from . import theme as term_theme
+from .palette import DEFAULT_BG, DEFAULT_FG
 
 VERSION = "1.0.0"
 CONTROL_RE = re.compile(r"[\x00-\x1f\x7f]")
-
-
-def _rgb(value, fallback):
-    if isinstance(value, (tuple, list)) and len(value) == 3:
-        return tuple(max(0, min(255, int(v))) for v in value)
-    if not value or not isinstance(value, str):
-        return fallback
-    value = value.strip().lstrip("#")
-    if len(value) == 3:
-        value = "".join(ch * 2 for ch in value)
-    if len(value) != 6:
-        return fallback
-    try:
-        return tuple(int(value[i : i + 2], 16) for i in (0, 2, 4))
-    except ValueError:
-        return fallback
 
 
 def _clean_title(title: str) -> str:
@@ -63,8 +48,7 @@ class TerminalSession:
         self._last_mouse = None
         self._mouse_buttons = set()
         self.last_mouse_cell = (0, 0)
-        self._theme = self._theme_from_settings()
-
+        self._exit_scheduled = False
         self._configure_view()
         self._create_terminal()
         self._start_pty()
@@ -80,22 +64,6 @@ class TerminalSession:
         if file_path and os.path.isdir(file_path):
             return file_path
         return os.getcwd()
-
-    def _theme_from_settings(self):
-        fg = _rgb(self.settings.get("foreground"), (216, 222, 233))
-        bg = _rgb(self.settings.get("background"), (30, 30, 30))
-        cursor = _rgb(self.settings.get("cursor"), fg)
-        selection = _rgb(self.settings.get("selection"), (59, 66, 82))
-        selection_fg = _rgb(self.settings.get("selection_foreground"), (236, 239, 244))
-        palette = self.settings.get("palette")
-        return {
-            "foreground": fg,
-            "background": bg,
-            "cursor": cursor,
-            "selection": selection,
-            "selection_foreground": selection_fg,
-            "palette": palette,
-        }
 
     def _configure_view(self):
         view = self.view
@@ -147,22 +115,8 @@ class TerminalSession:
         }
         for key, value in values.items():
             settings.set(key, value)
-        theme = theme_manager()
-        theme.configure(
-            {
-                "foreground": "#{:02x}{:02x}{:02x}".format(*self._theme["foreground"]),
-                "background": "#{:02x}{:02x}{:02x}".format(*self._theme["background"]),
-                "cursor": "#{:02x}{:02x}{:02x}".format(*self._theme["cursor"]),
-                "selection": "#{:02x}{:02x}{:02x}".format(*self._theme["selection"]),
-                "selection_foreground": "#{:02x}{:02x}{:02x}".format(
-                    *self._theme["selection_foreground"]
-                ),
-            }
-        )
-        theme.apply(view)
-        self.renderer.set_theme(
-            self._theme["foreground"], self._theme["background"], self._theme["cursor"]
-        )
+        term_theme.apply(view)
+        self.renderer.set_theme(DEFAULT_FG, DEFAULT_BG, DEFAULT_FG)
 
     def after_show(self):
         if self.closed:
@@ -186,10 +140,10 @@ class TerminalSession:
             scrollback_bytes=self.settings.get("scrollback_bytes") or 32 * 1024 * 1024,
         )
         self.terminal.set_colors(
-            foreground=self._theme["foreground"],
-            background=self._theme["background"],
-            cursor=self._theme["cursor"],
-            palette=self._theme.get("palette"),
+            foreground=DEFAULT_FG,
+            background=DEFAULT_BG,
+            cursor=DEFAULT_FG,
+            palette=term_theme.PALETTE_256,
         )
 
     def _start_pty(self):
@@ -290,8 +244,12 @@ class TerminalSession:
                 break
             if item is None:
                 self.exited = True
-                self.pty.alive = False
+                if self.pty:
+                    self.pty.alive = False
                 self.view.set_status("sublime_term_process", "exited")
+                if not self._exit_scheduled:
+                    self._exit_scheduled = True
+                    sublime.set_timeout(self._close_after_exit, 30)
                 continue
             self.terminal.write(item)
             dirty = True
@@ -301,6 +259,18 @@ class TerminalSession:
         if dirty:
             self.render()
         self._update_scroll_status()
+
+    def _close_after_exit(self):
+        if self.closed:
+            return
+        if not self.settings.get("close_on_exit", True):
+            return
+        if self.is_panel:
+            from . import manager
+
+            manager.close_panel(self.window)
+        elif self.view.is_valid():
+            self.view.close()
 
     def render(self):
         if self.closed or not self.terminal:

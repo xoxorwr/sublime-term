@@ -9,7 +9,8 @@ the text remains selectable and searchable.
 
 - Full VT emulation from Ghostty's `libghostty-vt`
 - Tab terminals and a toggleable bottom-panel terminal
-- 16, 256 and 24-bit color (exact colors, including truecolor)
+- Static color scheme, safe with multiple Sublime Text instances
+- 16/256-color rendering; 24-bit colors map to the nearest palette color
 - Scrollback with mouse-wheel and keyboard navigation
 - Native Sublime Text selection, copy and paste
 - Bracketed paste
@@ -28,7 +29,7 @@ way to overlay raster images in a text view, so inline images are not drawn.
 
 Put this folder in Sublime Text's `Packages` directory (Preferences → Browse
 Packages…). It must be a directory package, not a `.sublime-package`, because
-the generated color scheme is written into the package.
+the bundled `libghostty-vt.so` is loaded from the filesystem.
 
 The repository includes `lib/libghostty-vt.so` for x86_64 Linux. On another
 architecture, or to rebuild against a newer Ghostty, run:
@@ -126,13 +127,9 @@ Settings live in `sublime_term.sublime-settings`:
     "font_face": "monospace",
     "font_size": 12,
     "line_height": 1.0,
-    "foreground": "#d8dee9",
-    "background": "#1e1e1e",
-    "cursor": "#d8dee9",
-    "selection": "#3b4252",
-    "selection_foreground": "#eceff4",
     "scrollback_lines": 10000,
-    "scrollback_bytes": 33554432
+    "scrollback_bytes": 33554432,
+    "close_on_exit": true
 }
 ```
 
@@ -143,6 +140,9 @@ library directories. `SUBLIME_TERM_LIBGHOSTTY` overrides all of them.
 The terminal font must be monospaced. The view is configured to hide gutter,
 line numbers, folding, wrapping, indent guides and whitespace markers.
 
+When `close_on_exit` is true, running `exit` (or otherwise terminating the
+shell) closes the terminal tab or panel automatically.
+
 ## Architecture
 
 - `term/ghostty.py` — ctypes binding for libghostty-vt: terminal, render state,
@@ -151,8 +151,12 @@ line numbers, folding, wrapping, indent guides and whitespace markers.
 - `term/session.py` — per-view terminal session, sizing, lifecycle and input.
 - `term/render.py` — converts the libghostty screen into Sublime text and
   regions.
-- `term/theme.py` — generates a hidden color scheme whose rules map each
-  foreground/background color pair used on screen to a Sublime region scope.
+- `term/theme.py` — maps foreground/background colors to scopes in the static
+  `Terminal.sublime-color-scheme`. The scheme is immutable at runtime, so any
+  number of Sublime Text instances can share it without clobbering colors.
+- `term/palette.py` and `scripts/generate-color-scheme.py` — the shared
+  256-color palette and the generator for `Terminal.sublime-color-scheme`.
+  Regenerate the scheme after changing the palette.
 - `term/commands.py`, `term/listeners.py`, `term/keys.py` — commands and input
   integration.
 

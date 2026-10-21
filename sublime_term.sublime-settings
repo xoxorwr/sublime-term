@@ -6,12 +6,8 @@
     "font_face": "monospace",
     "font_size": 12,
     "line_height": 1.0,
-    "foreground": "#d8dee9",
-    "background": "#1e1e1e",
-    "cursor": "#d8dee9",
-    "selection": "#3b4252",
-    "selection_foreground": "#eceff4",
     "scrollback_lines": 10000,
     "scrollback_bytes": 33554432,
+    "close_on_exit": true,
     "tmux_session": "main"
 }

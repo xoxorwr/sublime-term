@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import sublime
 
-from .theme import manager as theme_manager
+from . import theme as term_theme
 
 
 class RenderedLine:
@@ -36,16 +36,11 @@ def _blend(a, b, amount=0.5):
     return tuple(_clamp(a[i] * (1.0 - amount) + b[i] * amount) for i in range(3))
 
 
-def _hex(rgb):
-    return "#{:02x}{:02x}{:02x}".format(rgb[0], rgb[1], rgb[2])
-
-
 class Renderer:
     def __init__(self):
         self.last_texts = []
         self.region_keys = []
         self.underline_keys = []
-        self.theme = theme_manager()
         self.default_fg = (216, 222, 233)
         self.default_bg = (30, 30, 30)
         self.cursor_color = (216, 222, 233)
@@ -56,7 +51,6 @@ class Renderer:
         self.cursor_color = cursor
 
     def build(self, screen) -> Frame:
-        theme = self.theme
         fg_default = self.default_fg
         bg_default = self.default_bg
         cursor_default = self.cursor_color
@@ -119,7 +113,7 @@ class Renderer:
                 if is_cursor_cell:
                     fg, bg = bg_default, cursor_default
 
-                pair = (fg, bg)
+                pair = (term_theme.quantize(fg), term_theme.quantize(bg))
                 if current is not None and current[2] == pair and current[1] == start:
                     current = (current[0], end, pair)
                     spans[-1] = current
@@ -128,7 +122,7 @@ class Renderer:
                     spans.append(current)
 
                 if cell.underline:
-                    color = cell.underline_color or fg
+                    color = term_theme.quantize(cell.underline_color or fg)
                     if current_underline is not None and current_underline[2] == color and current_underline[1] == start:
                         current_underline = (current_underline[0], end, color)
                         underlines[-1] = current_underline
@@ -150,7 +144,6 @@ class Renderer:
             frame.lines.append(line)
         if not frame.lines:
             frame.lines.append(RenderedLine())
-        theme.refresh_if_needed()
         return frame
 
     def apply(self, view: sublime.View, edit, frame: Frame):
@@ -167,7 +160,11 @@ class Renderer:
                 line_region = view.line(point)
                 view.replace(edit, line_region, text)
         self.last_texts = texts
+        self._apply_regions(view, frame)
 
+    def _apply_regions(self, view: sublime.View, frame: Frame):
+        if not view.is_valid():
+            return
         for key in self.region_keys:
             view.erase_regions(key)
         for key in self.underline_keys:
@@ -181,24 +178,21 @@ class Renderer:
             if not line.text:
                 continue
             for start, stop, pair in line.spans:
-                fg = _hex(pair[0])
-                bg = _hex(pair[1])
                 if pair[0] == self.default_fg and pair[1] == self.default_bg:
                     continue
-                scope = self.theme.scope(fg, bg)
+                scope = term_theme.scope(pair[0], pair[1])
                 a = view.text_point(i, start)
                 b = view.text_point(i, stop)
                 if b > a:
                     grouped.setdefault(scope, []).append(sublime.Region(a, b))
             for start, stop, color in line.underlines:
-                scope = self.theme.underline_scope(_hex(color))
+                scope = term_theme.underline_scope(color)
                 a = view.text_point(i, start)
                 b = view.text_point(i, stop)
                 if b > a:
                     under_grouped.setdefault(scope, []).append(sublime.Region(a, b))
 
-        self.theme.refresh_if_needed()
-        self.theme.apply(view)
+        term_theme.apply(view)
         for index, (scope, regions) in enumerate(grouped.items()):
             key = "sublime_term_color_{}".format(index)
             view.add_regions(key, regions, scope)
@@ -208,8 +202,6 @@ class Renderer:
             key = "sublime_term_underline_{}".format(index)
             view.add_regions(key, regions, scope, flags=flags)
             self.underline_keys.append(key)
-        self.theme.refresh_if_needed()
-        self.theme.apply(view)
         if frame.cursor_line >= 0 and frame.cursor_line < len(frame.lines):
             span = frame.lines[frame.cursor_line].cursor_span
             if span:

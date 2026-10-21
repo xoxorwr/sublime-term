@@ -9,6 +9,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -22,6 +30,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -35,6 +51,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -48,6 +72,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -68,6 +100,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -88,6 +128,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -108,6 +156,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -128,6 +184,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -148,6 +212,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -166,6 +238,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -186,6 +266,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -206,6 +294,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -226,6 +322,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -244,6 +348,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -264,6 +376,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -284,6 +404,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -304,6 +432,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -322,6 +458,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -340,6 +484,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -360,6 +512,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -378,6 +538,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -398,6 +566,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -418,6 +594,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -438,6 +622,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -456,6 +648,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -476,6 +676,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -496,6 +704,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -516,6 +732,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -534,6 +758,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -552,6 +784,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -572,6 +812,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -592,6 +840,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -612,6 +868,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -633,6 +897,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -654,6 +926,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -675,6 +955,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -693,6 +981,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -713,6 +1009,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -733,6 +1037,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -753,6 +1065,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -774,6 +1094,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -795,6 +1123,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -816,6 +1152,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -834,6 +1178,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -854,6 +1206,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -874,6 +1234,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -894,6 +1262,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -915,6 +1291,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -936,6 +1320,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -957,6 +1349,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -975,6 +1375,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -995,6 +1403,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1015,6 +1431,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1035,6 +1459,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1056,6 +1488,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1077,6 +1517,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1098,6 +1546,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1116,6 +1572,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1136,6 +1600,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1156,6 +1628,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1176,6 +1656,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1197,6 +1685,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1218,6 +1714,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1239,6 +1743,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1257,6 +1769,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1277,6 +1797,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1297,6 +1825,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1317,6 +1853,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1338,6 +1882,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1359,6 +1911,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1380,6 +1940,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1398,6 +1966,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1418,6 +1994,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1439,6 +2023,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1460,6 +2052,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1478,6 +2078,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1498,6 +2106,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1519,6 +2135,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1540,6 +2164,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1556,6 +2188,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1572,6 +2212,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1588,6 +2236,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1604,6 +2260,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1620,6 +2284,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1636,6 +2308,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1656,6 +2336,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1676,6 +2364,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1696,6 +2392,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1716,6 +2420,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1736,6 +2448,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1756,6 +2476,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1776,6 +2504,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1796,6 +2532,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1816,6 +2560,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1836,6 +2588,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1856,6 +2616,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1876,6 +2644,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1896,6 +2672,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1916,6 +2700,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1936,6 +2728,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1956,6 +2756,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1976,6 +2784,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -1996,6 +2812,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2016,6 +2840,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2036,6 +2868,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2056,6 +2896,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2076,6 +2924,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2096,6 +2952,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2117,6 +2981,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2137,6 +3009,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2158,6 +3038,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2178,6 +3066,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2199,6 +3095,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2219,6 +3123,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2240,6 +3152,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2260,6 +3180,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2281,6 +3209,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2301,6 +3237,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2322,6 +3266,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2342,6 +3294,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2363,6 +3323,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2383,6 +3351,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2404,6 +3380,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2424,6 +3408,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2445,6 +3437,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2465,6 +3465,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2486,6 +3494,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2506,6 +3522,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2527,6 +3551,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2547,6 +3579,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2568,6 +3608,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2588,6 +3636,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2609,6 +3665,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2629,6 +3693,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2650,6 +3722,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2670,6 +3750,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2691,6 +3779,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2711,6 +3807,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2732,6 +3836,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2752,6 +3864,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2773,6 +3893,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2793,6 +3921,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2814,6 +3950,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2834,6 +3978,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2855,6 +4007,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2875,6 +4035,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2896,6 +4064,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2916,6 +4092,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2937,6 +4121,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2957,6 +4149,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2978,6 +4178,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -2998,6 +4206,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3019,6 +4235,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3039,6 +4263,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3060,6 +4292,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3080,6 +4320,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3101,6 +4349,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3121,6 +4377,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3142,6 +4406,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3162,6 +4434,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3182,6 +4462,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3202,6 +4490,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3222,6 +4518,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3242,6 +4546,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3262,6 +4574,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3282,6 +4602,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3302,6 +4630,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3322,6 +4658,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3342,6 +4686,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3360,6 +4712,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3380,6 +4740,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3400,6 +4768,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3418,6 +4794,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3438,6 +4822,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3458,6 +4850,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3476,6 +4876,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3496,6 +4904,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3516,6 +4932,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3534,6 +4958,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3554,6 +4986,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3574,6 +5014,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3592,6 +5040,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3612,6 +5068,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3632,6 +5096,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3650,6 +5122,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3670,6 +5150,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3690,6 +5178,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3708,6 +5204,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3728,6 +5232,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3748,6 +5260,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3766,6 +5286,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3786,6 +5314,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3806,6 +5342,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3824,6 +5368,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3844,6 +5396,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3864,6 +5424,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3882,6 +5450,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3902,6 +5478,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3922,6 +5506,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3940,6 +5532,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3960,6 +5560,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3980,6 +5588,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -3998,6 +5614,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -4018,6 +5642,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     },
@@ -4038,6 +5670,14 @@
                 "key": "setting.terminal_view",
                 "operator": "equal",
                 "operand": true
+            },
+            {
+                "key": "sublime_term.keys"
+            },
+            {
+                "key": "overlay_visible",
+                "operator": "equal",
+                "operand": false
             }
         ]
     }
