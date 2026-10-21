@@ -78,8 +78,8 @@ class TerminalSession:
         values = {
             "terminal_view": True,
             "terminal_mouse_tracking": False,
-            "word_wrap": False,
-            "wrap_width": 0,
+            "word_wrap": True,
+            "wrap_width": 100000,
             "line_numbers": False,
             "gutter": False,
             "fold_buttons": False,
@@ -92,10 +92,9 @@ class TerminalSession:
             "auto_complete_with_fields": False,
             "rulers": [],
             "scroll_past_end": False,
-            "scroll_bars": "hidden",
             "line_padding_top": 0,
             "line_padding_bottom": 0,
-            "margin": 4,
+            "margin": 0,
             "caret_style": "solid",
             "caret_extra_top": 0,
             "caret_extra_bottom": 0,
@@ -184,8 +183,8 @@ class TerminalSession:
             em = lh = 0
         if width < 20 or height < 20 or em <= 0 or lh <= 0:
             return 80, 24
-        cols = max(20, int((width - 8) / em))
-        rows = max(5, int((height - 6) / lh))
+        cols = max(20, int((width - 24) / em))
+        rows = max(5, int((height - 8) / lh))
         return cols, rows
 
     def _cell_width(self):
