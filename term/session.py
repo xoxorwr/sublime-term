@@ -340,7 +340,7 @@ class TerminalSession:
             em = lh = 0
         if width < 20 or height < 20 or em <= 0 or lh <= 0:
             return 80, 24
-        cols = max(20, int((width - 4) / em))
+        cols = max(20, int((width - 12) / em))
         rows = max(5, int((height - 8) / lh))
         return cols, rows
 
@@ -371,7 +371,7 @@ class TerminalSession:
     def _write_pty(self, data):
         if not self.pty or self.closed:
             return
-        if self.active_screen == 0 and b"\x1b[48;" in data:
+        if b"\x1b[48;" in data:
             data = re.sub(rb"\x1b\[48;\d+;\d+;\d+;\d+t", b"", data)
             if not data:
                 return
@@ -417,6 +417,8 @@ class TerminalSession:
         if self._tick_count % 12 == 0:
             if self.refresh_size():
                 dirty = True
+                if self._is_at_bottom():
+                    self._force_follow = True
         if dirty:
             self.render()
         self._update_scroll_status()
@@ -504,7 +506,7 @@ class TerminalSession:
         if self.pending_frame is not None and not self.closed:
             inserted = self.renderer.apply(view, edit, self.pending_frame)
             follow = self._follow_output or self._force_follow
-            if follow:
+            if follow and (inserted or self._force_follow):
                 view.show(view.size())
             elif inserted and self._pre_viewport is not None:
                 try:
