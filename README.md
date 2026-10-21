@@ -5,6 +5,9 @@ A real terminal emulator for Sublime Text on Linux and macOS, backed by
 PTY inside a normal Sublime Text view and renders the terminal with regions, so
 the text remains selectable and searchable.
 
+
+![tmux screenshot](docs/tmux.png)
+
 ## Features
 
 - Full VT emulation from Ghostty's `libghostty-vt`
