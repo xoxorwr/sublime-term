@@ -1,0 +1,466 @@
+[
+    {
+        "button": "button1",
+        "modifiers": [
+            "shift"
+        ],
+        "press_command": "drag_select",
+        "press_args": {
+            "extend": true
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "button1",
+        "modifiers": [
+            "shift",
+            "ctrl"
+        ],
+        "press_command": "drag_select",
+        "press_args": {
+            "additive": true,
+            "extend": true
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "button1",
+        "modifiers": [
+            "shift",
+            "alt"
+        ],
+        "press_command": "drag_select",
+        "press_args": {
+            "subtractive": true
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "scroll_up",
+        "modifiers": [
+            "shift"
+        ],
+        "command": "terminal_scroll",
+        "args": {
+            "delta": -3
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "scroll_down",
+        "modifiers": [
+            "shift"
+        ],
+        "command": "terminal_scroll",
+        "args": {
+            "delta": 3
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "scroll_up",
+        "modifiers": [],
+        "command": "terminal_scroll",
+        "args": {
+            "delta": -3
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": false
+            }
+        ]
+    },
+    {
+        "button": "scroll_down",
+        "modifiers": [],
+        "command": "terminal_scroll",
+        "args": {
+            "delta": 3
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": false
+            }
+        ]
+    },
+    {
+        "button": "button1",
+        "count": 1,
+        "press_command": "terminal_mouse",
+        "press_args": {
+            "button": 1,
+            "action": "press"
+        },
+        "command": "terminal_mouse",
+        "args": {
+            "button": 1,
+            "action": "release"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "button1",
+        "count": 2,
+        "press_command": "terminal_mouse",
+        "press_args": {
+            "button": 1,
+            "action": "press"
+        },
+        "command": "terminal_mouse",
+        "args": {
+            "button": 1,
+            "action": "release"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "button1",
+        "count": 3,
+        "press_command": "terminal_mouse",
+        "press_args": {
+            "button": 1,
+            "action": "press"
+        },
+        "command": "terminal_mouse",
+        "args": {
+            "button": 1,
+            "action": "release"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "button1 drag",
+        "command": "terminal_mouse",
+        "args": {
+            "button": 1,
+            "action": "motion"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "button2",
+        "count": 1,
+        "press_command": "terminal_mouse",
+        "press_args": {
+            "button": 2,
+            "action": "press"
+        },
+        "command": "terminal_mouse",
+        "args": {
+            "button": 2,
+            "action": "release"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "button2",
+        "count": 2,
+        "press_command": "terminal_mouse",
+        "press_args": {
+            "button": 2,
+            "action": "press"
+        },
+        "command": "terminal_mouse",
+        "args": {
+            "button": 2,
+            "action": "release"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "button2",
+        "count": 3,
+        "press_command": "terminal_mouse",
+        "press_args": {
+            "button": 2,
+            "action": "press"
+        },
+        "command": "terminal_mouse",
+        "args": {
+            "button": 2,
+            "action": "release"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "button2 drag",
+        "command": "terminal_mouse",
+        "args": {
+            "button": 2,
+            "action": "motion"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "button3",
+        "count": 1,
+        "press_command": "terminal_mouse",
+        "press_args": {
+            "button": 3,
+            "action": "press"
+        },
+        "command": "terminal_mouse",
+        "args": {
+            "button": 3,
+            "action": "release"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "button3",
+        "count": 2,
+        "press_command": "terminal_mouse",
+        "press_args": {
+            "button": 3,
+            "action": "press"
+        },
+        "command": "terminal_mouse",
+        "args": {
+            "button": 3,
+            "action": "release"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "button3",
+        "count": 3,
+        "press_command": "terminal_mouse",
+        "press_args": {
+            "button": 3,
+            "action": "press"
+        },
+        "command": "terminal_mouse",
+        "args": {
+            "button": 3,
+            "action": "release"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "button3 drag",
+        "command": "terminal_mouse",
+        "args": {
+            "button": 3,
+            "action": "motion"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "scroll_up",
+        "modifiers": [],
+        "command": "terminal_mouse",
+        "args": {
+            "button": 4,
+            "action": "press"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "scroll_down",
+        "modifiers": [],
+        "command": "terminal_mouse",
+        "args": {
+            "button": 5,
+            "action": "press"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            },
+            {
+                "key": "setting.terminal_mouse_tracking",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    }
+]

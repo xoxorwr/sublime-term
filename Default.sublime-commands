@@ -1,0 +1,14 @@
+[
+    { "caption": "Terminal: New", "command": "terminal_open" },
+    { "caption": "Terminal: New Here", "command": "terminal_open_here" },
+    { "caption": "Terminal: Run Command…", "command": "terminal_run" },
+    { "caption": "Terminal: New tmux Session…", "command": "terminal_tmux" },
+    { "caption": "Terminal: Restart", "command": "terminal_restart" },
+    { "caption": "Terminal: Close", "command": "terminal_close" },
+    { "caption": "Terminal: Copy", "command": "terminal_copy" },
+    { "caption": "Terminal: Paste", "command": "terminal_paste" },
+    { "caption": "Terminal: Scroll to Top", "command": "terminal_scroll", "args": { "to": "top" } },
+    { "caption": "Terminal: Scroll to Bottom", "command": "terminal_scroll", "args": { "to": "bottom" } },
+    { "caption": "Terminal: Clear Scrollback", "command": "terminal_clear_scrollback" },
+    { "caption": "Terminal: Settings", "command": "terminal_open_settings" }
+]

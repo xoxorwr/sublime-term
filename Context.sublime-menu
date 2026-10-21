@@ -1,0 +1,10 @@
+[
+    { "caption": "Copy", "command": "terminal_copy" },
+    { "caption": "Paste", "command": "terminal_paste" },
+    { "caption": "-" },
+    { "caption": "Scroll to Top", "command": "terminal_scroll", "args": { "to": "top" } },
+    { "caption": "Scroll to Bottom", "command": "terminal_scroll", "args": { "to": "bottom" } },
+    { "caption": "Clear Scrollback", "command": "terminal_clear_scrollback" },
+    { "caption": "Restart Terminal", "command": "terminal_restart" },
+    { "caption": "Close Terminal", "command": "terminal_close" }
+]

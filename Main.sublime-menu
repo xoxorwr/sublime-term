@@ -1,0 +1,25 @@
+[
+    {
+        "id": "tools",
+        "children":
+        [
+            {
+                "caption": "Terminal",
+                "children":
+                [
+                    { "caption": "New Terminal", "command": "terminal_open" },
+                    { "caption": "New Terminal Here", "command": "terminal_open_here" },
+                    { "caption": "Run Command…", "command": "terminal_run" },
+                    { "caption": "New tmux Session…", "command": "terminal_tmux" },
+                    { "caption": "-" },
+                    { "caption": "Copy", "command": "terminal_copy" },
+                    { "caption": "Paste", "command": "terminal_paste" },
+                    { "caption": "-" },
+                    { "caption": "Clear Scrollback", "command": "terminal_clear_scrollback" },
+                    { "caption": "Restart", "command": "terminal_restart" },
+                    { "caption": "Close", "command": "terminal_close" }
+                ]
+            }
+        ]
+    }
+]

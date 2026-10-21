@@ -1,0 +1,8 @@
+%YAML 1.2
+---
+name: Terminal
+hidden: true
+scope: text.terminal
+
+contexts:
+  main: []

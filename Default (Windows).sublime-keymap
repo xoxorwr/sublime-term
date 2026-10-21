@@ -1,0 +1,4044 @@
+[
+    {
+        "keys": [
+            "ctrl+shift+c"
+        ],
+        "command": "terminal_copy",
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+insert"
+        ],
+        "command": "terminal_copy",
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+shift+v"
+        ],
+        "command": "terminal_paste",
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+insert"
+        ],
+        "command": "terminal_paste",
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+c"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "c",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "c"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+v"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "v",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "v"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+x"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "x",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "x"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+z"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "z",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "z"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+a"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "a",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "a"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "backspace"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "backspace",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+backspace"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "backspace",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+backspace"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "backspace",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+backspace"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "backspace",
+            "mods": [
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "enter"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "enter",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+enter"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "enter",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+enter"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "enter",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+enter"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "enter",
+            "mods": [
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "keypad_enter"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "keypad_enter",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "tab"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "tab",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+tab"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "tab",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "escape"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "escape",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+escape"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "escape",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+escape"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "escape",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+escape"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "escape",
+            "mods": [
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "delete"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "delete",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+delete"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "delete",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+delete"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "delete",
+            "mods": [
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+delete"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "delete",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "insert"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "insert",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "up"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "up",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+up"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "up",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+up"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "up",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+up"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "up",
+            "mods": [
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+shift+up"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "up",
+            "mods": [
+                "ctrl",
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+up"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "up",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+alt+up"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "up",
+            "mods": [
+                "ctrl",
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "down"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "down",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+down"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "down",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+down"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "down",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+down"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "down",
+            "mods": [
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+shift+down"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "down",
+            "mods": [
+                "ctrl",
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+down"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "down",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+alt+down"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "down",
+            "mods": [
+                "ctrl",
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "left"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "left",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+left"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "left",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+left"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "left",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+left"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "left",
+            "mods": [
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+shift+left"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "left",
+            "mods": [
+                "ctrl",
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+left"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "left",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+alt+left"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "left",
+            "mods": [
+                "ctrl",
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "right"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "right",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+right"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "right",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+right"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "right",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+right"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "right",
+            "mods": [
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+shift+right"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "right",
+            "mods": [
+                "ctrl",
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+right"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "right",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+alt+right"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "right",
+            "mods": [
+                "ctrl",
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "home"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "home",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+home"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "home",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+home"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "home",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+home"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "home",
+            "mods": [
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+shift+home"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "home",
+            "mods": [
+                "ctrl",
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+home"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "home",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+alt+home"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "home",
+            "mods": [
+                "ctrl",
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "end"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "end",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+end"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "end",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+end"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "end",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+end"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "end",
+            "mods": [
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+shift+end"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "end",
+            "mods": [
+                "ctrl",
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+end"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "end",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+alt+end"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "end",
+            "mods": [
+                "ctrl",
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "pageup"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "page_up",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+pageup"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "page_up",
+            "mods": [
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+pageup"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "page_up",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+alt+pageup"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "page_up",
+            "mods": [
+                "ctrl",
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "pagedown"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "page_down",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+pagedown"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "page_down",
+            "mods": [
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+pagedown"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "page_down",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+alt+pagedown"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "page_down",
+            "mods": [
+                "ctrl",
+                "alt"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+pageup"
+        ],
+        "command": "terminal_scroll",
+        "args": {
+            "delta": -8
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+pagedown"
+        ],
+        "command": "terminal_scroll",
+        "args": {
+            "delta": 8
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+shift+up"
+        ],
+        "command": "terminal_scroll",
+        "args": {
+            "delta": -1
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+shift+down"
+        ],
+        "command": "terminal_scroll",
+        "args": {
+            "delta": 1
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+shift+home"
+        ],
+        "command": "terminal_scroll",
+        "args": {
+            "to": "top"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+shift+end"
+        ],
+        "command": "terminal_scroll",
+        "args": {
+            "to": "bottom"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+b"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "b",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "b"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+d"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "d",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "d"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+e"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "e",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "e"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+f"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "f"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+g"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "g",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "g"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+h"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "h",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "h"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+i"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "i",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "i"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+j"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "j",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "j"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+k"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "k",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "k"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+l"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "l",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "l"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+m"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "m",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "m"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+n"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "n",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "n"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+o"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "o",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "o"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+p"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "p",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "p"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+q"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "q",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "q"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+r"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "r",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "r"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+s"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "s",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "s"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+t"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "t",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "t"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+u"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "u",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "u"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+w"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "w",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "w"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+y"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "y",
+            "mods": [
+                "ctrl"
+            ],
+            "text": "y"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+space"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "space",
+            "mods": [
+                "ctrl"
+            ],
+            "text": " "
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+a"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "a",
+            "mods": [
+                "alt"
+            ],
+            "text": "a"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+a"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "a",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "A"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+b"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "b",
+            "mods": [
+                "alt"
+            ],
+            "text": "b"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+b"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "b",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "B"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+c"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "c",
+            "mods": [
+                "alt"
+            ],
+            "text": "c"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+c"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "c",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "C"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+d"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "d",
+            "mods": [
+                "alt"
+            ],
+            "text": "d"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+d"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "d",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "D"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+e"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "e",
+            "mods": [
+                "alt"
+            ],
+            "text": "e"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+e"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "e",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "E"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+f"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f",
+            "mods": [
+                "alt"
+            ],
+            "text": "f"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+f"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "F"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+g"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "g",
+            "mods": [
+                "alt"
+            ],
+            "text": "g"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+g"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "g",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "G"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+h"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "h",
+            "mods": [
+                "alt"
+            ],
+            "text": "h"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+h"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "h",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "H"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+i"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "i",
+            "mods": [
+                "alt"
+            ],
+            "text": "i"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+i"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "i",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "I"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+j"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "j",
+            "mods": [
+                "alt"
+            ],
+            "text": "j"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+j"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "j",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "J"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+k"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "k",
+            "mods": [
+                "alt"
+            ],
+            "text": "k"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+k"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "k",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "K"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+l"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "l",
+            "mods": [
+                "alt"
+            ],
+            "text": "l"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+l"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "l",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "L"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+m"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "m",
+            "mods": [
+                "alt"
+            ],
+            "text": "m"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+m"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "m",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "M"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+n"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "n",
+            "mods": [
+                "alt"
+            ],
+            "text": "n"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+n"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "n",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "N"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+o"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "o",
+            "mods": [
+                "alt"
+            ],
+            "text": "o"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+o"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "o",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "O"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+p"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "p",
+            "mods": [
+                "alt"
+            ],
+            "text": "p"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+p"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "p",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "P"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+q"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "q",
+            "mods": [
+                "alt"
+            ],
+            "text": "q"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+q"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "q",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "Q"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+r"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "r",
+            "mods": [
+                "alt"
+            ],
+            "text": "r"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+r"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "r",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "R"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+s"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "s",
+            "mods": [
+                "alt"
+            ],
+            "text": "s"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+s"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "s",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "S"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+t"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "t",
+            "mods": [
+                "alt"
+            ],
+            "text": "t"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+t"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "t",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "T"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+u"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "u",
+            "mods": [
+                "alt"
+            ],
+            "text": "u"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+u"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "u",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "U"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+v"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "v",
+            "mods": [
+                "alt"
+            ],
+            "text": "v"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+v"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "v",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "V"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+w"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "w",
+            "mods": [
+                "alt"
+            ],
+            "text": "w"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+w"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "w",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "W"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+x"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "x",
+            "mods": [
+                "alt"
+            ],
+            "text": "x"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+x"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "x",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "X"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+y"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "y",
+            "mods": [
+                "alt"
+            ],
+            "text": "y"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+y"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "y",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "Y"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+z"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "z",
+            "mods": [
+                "alt"
+            ],
+            "text": "z"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+shift+z"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "z",
+            "mods": [
+                "alt",
+                "shift"
+            ],
+            "text": "Z"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+0"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "0",
+            "mods": [
+                "alt"
+            ],
+            "text": "0"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+1"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "1",
+            "mods": [
+                "alt"
+            ],
+            "text": "1"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+2"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "2",
+            "mods": [
+                "alt"
+            ],
+            "text": "2"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+3"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "3",
+            "mods": [
+                "alt"
+            ],
+            "text": "3"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+4"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "4",
+            "mods": [
+                "alt"
+            ],
+            "text": "4"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+5"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "5",
+            "mods": [
+                "alt"
+            ],
+            "text": "5"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+6"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "6",
+            "mods": [
+                "alt"
+            ],
+            "text": "6"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+7"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "7",
+            "mods": [
+                "alt"
+            ],
+            "text": "7"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+8"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "8",
+            "mods": [
+                "alt"
+            ],
+            "text": "8"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "alt+9"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "9",
+            "mods": [
+                "alt"
+            ],
+            "text": "9"
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "f1"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f1",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+f1"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f1",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+f1"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f1",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "f2"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f2",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+f2"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f2",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+f2"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f2",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "f3"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f3",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+f3"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f3",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+f3"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f3",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "f4"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f4",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+f4"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f4",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+f4"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f4",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "f5"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f5",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+f5"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f5",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+f5"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f5",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "f6"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f6",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+f6"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f6",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+f6"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f6",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "f7"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f7",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+f7"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f7",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+f7"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f7",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "f8"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f8",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+f8"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f8",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+f8"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f8",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "f9"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f9",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+f9"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f9",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+f9"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f9",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "f10"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f10",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+f10"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f10",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+f10"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f10",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "f11"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f11",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+f11"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f11",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+f11"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f11",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "f12"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f12",
+            "mods": [],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "shift+f12"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f12",
+            "mods": [
+                "shift"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+f12"
+        ],
+        "command": "terminal_key",
+        "args": {
+            "key": "f12",
+            "mods": [
+                "ctrl"
+            ],
+            "text": ""
+        },
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    }
+]

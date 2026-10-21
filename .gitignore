@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+.ghostty-src/
+.ghostty-build/

@@ -1,0 +1,4 @@
+[
+    { "caption": "-", "id": "terminal_sep" },
+    { "caption": "Open Terminal Here", "command": "terminal_open", "args": { "cwd": "$file_path" } }
+]
