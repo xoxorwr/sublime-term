@@ -49,7 +49,18 @@ class TerminalEventListener(sublime_plugin.EventListener):
         if view.settings().get("terminal_view"):
             session = manager.get(view.id())
             if session:
+                window = view.window()
+                if window:
+                    manager.hide_minimap(window)
                 session.send_focus(True)
+                sublime.set_timeout(
+                    lambda: session.refresh_size(force=True) if not session.closed else None,
+                    50,
+                )
+        else:
+            window = view.window()
+            if window:
+                manager.restore_minimap(window)
 
     def on_deactivated(self, view):
         if view.settings().get("terminal_view"):

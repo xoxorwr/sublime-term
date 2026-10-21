@@ -6,6 +6,7 @@ from .session import TerminalSession
 
 _sessions = {}
 _scheduled = False
+_minimap_visible = {}
 PANEL_NAME = "sublime_term"
 
 
@@ -18,11 +19,14 @@ def all_sessions():
 
 
 def create(window: sublime.Window, options=None):
+    hide_minimap(window)
     view = window.new_file()
     try:
         session = TerminalSession(window, view, options or {})
     except Exception as e:
         view.close()
+        if not any(s.window.id() == window.id() for s in _sessions.values()):
+            restore_minimap(window)
         sublime.error_message("Sublime Term: {}\n\nSee the console for details.".format(e))
         print("sublime_term: failed to create terminal:", e)
         import traceback
@@ -32,6 +36,9 @@ def create(window: sublime.Window, options=None):
     _sessions[view.id()] = session
     _ensure_timer()
     window.focus_view(view)
+    hide_minimap(window)
+    sublime.set_timeout(lambda: hide_minimap(window), 50)
+    sublime.set_timeout(lambda: session.refresh_size(force=True), 50)
     return session
 
 
@@ -83,7 +90,7 @@ def close_panel(window: sublime.Window):
 
 
 def close_window(window: sublime.Window):
-    if not window or not window.is_valid():
+    if not window:
         return
     window_id = window.id()
     for session in list(_sessions.values()):
@@ -91,6 +98,30 @@ def close_window(window: sublime.Window):
             if session.window.id() == window_id:
                 _sessions.pop(session.view.id(), None)
                 session.close()
+        except Exception:
+            pass
+    _minimap_visible.pop(window_id, None)
+
+
+def hide_minimap(window: sublime.Window):
+    if not window or not window.is_valid():
+        return
+    window_id = window.id()
+    try:
+        if window_id not in _minimap_visible:
+            _minimap_visible[window_id] = window.is_minimap_visible()
+        window.set_minimap_visible(False)
+    except Exception:
+        _minimap_visible.pop(window_id, None)
+
+
+def restore_minimap(window: sublime.Window):
+    if not window or not window.is_valid():
+        return
+    visible = _minimap_visible.pop(window.id(), None)
+    if visible is not None:
+        try:
+            window.set_minimap_visible(visible)
         except Exception:
             pass
 

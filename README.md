@@ -12,6 +12,7 @@ the text remains selectable and searchable.
 
 - Full VT emulation from Ghostty's `libghostty-vt`
 - Tab terminals and a toggleable bottom-panel terminal
+- Hides the minimap while a terminal view is active, then restores it
 - One shared, theme-syncable color scheme
 - 16/256-color rendering; 24-bit colors map to the nearest palette color
 - Scrollback with mouse-wheel and keyboard navigation

@@ -49,6 +49,7 @@ class TerminalSession:
         self.last_mouse_cell = (0, 0)
         self._exit_scheduled = False
         self.active_screen = 0
+        self._previous_screen = 0
         self._click_point = None
         self._click_token = 0
         self._hover_key = "sublime_term_link"
@@ -107,6 +108,7 @@ class TerminalSession:
             "translate_tabs_to_spaces": False,
             "tab_size": 1,
             "show_definitions": False,
+            "overlay_scroll_bars": "enabled",
             "mini_diff": False,
             "show_encoding": False,
             "show_line_endings": False,
@@ -328,7 +330,7 @@ class TerminalSession:
             em = lh = 0
         if width < 20 or height < 20 or em <= 0 or lh <= 0:
             return 80, 24
-        cols = max(20, int((width - 24) / em))
+        cols = max(20, int((width - 4) / em))
         rows = max(5, int((height - 8) / lh))
         return cols, rows
 
@@ -357,8 +359,13 @@ class TerminalSession:
         return False
 
     def _write_pty(self, data):
-        if self.pty and not self.closed:
-            self.pty.write(data)
+        if not self.pty or self.closed:
+            return
+        if self.active_screen == 0 and b"\x1b[48;" in data:
+            data = re.sub(rb"\x1b\[48;\d+;\d+;\d+;\d+t", b"", data)
+            if not data:
+                return
+        self.pty.write(data)
 
     def _on_title(self, title):
         self.title = _clean_title(title) or "Terminal"
@@ -421,6 +428,9 @@ class TerminalSession:
             return
         self.terminal.update()
         screen = self.terminal.read_screen()
+        if self._previous_screen == 1 and screen.active_screen == 0:
+            self.terminal.write(b"\x1b[?2048l")
+        self._previous_screen = screen.active_screen
         self.active_screen = screen.active_screen
         if screen.mouse != self._last_mouse:
             self._last_mouse = screen.mouse
