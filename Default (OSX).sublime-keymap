@@ -923,35 +923,6 @@
     },
     {
         "keys": [
-            "ctrl+shift+up"
-        ],
-        "command": "terminal_key",
-        "args": {
-            "key": "up",
-            "mods": [
-                "ctrl",
-                "shift"
-            ],
-            "text": ""
-        },
-        "context": [
-            {
-                "key": "setting.terminal_view",
-                "operator": "equal",
-                "operand": true
-            },
-            {
-                "key": "sublime_term.keys"
-            },
-            {
-                "key": "overlay_visible",
-                "operator": "equal",
-                "operand": false
-            }
-        ]
-    },
-    {
-        "keys": [
             "alt+shift+up"
         ],
         "command": "terminal_key",
@@ -1099,35 +1070,6 @@
             "key": "down",
             "mods": [
                 "alt"
-            ],
-            "text": ""
-        },
-        "context": [
-            {
-                "key": "setting.terminal_view",
-                "operator": "equal",
-                "operand": true
-            },
-            {
-                "key": "sublime_term.keys"
-            },
-            {
-                "key": "overlay_visible",
-                "operator": "equal",
-                "operand": false
-            }
-        ]
-    },
-    {
-        "keys": [
-            "ctrl+shift+down"
-        ],
-        "command": "terminal_key",
-        "args": {
-            "key": "down",
-            "mods": [
-                "ctrl",
-                "shift"
             ],
             "text": ""
         },
@@ -1711,35 +1653,6 @@
     },
     {
         "keys": [
-            "ctrl+shift+home"
-        ],
-        "command": "terminal_key",
-        "args": {
-            "key": "home",
-            "mods": [
-                "ctrl",
-                "shift"
-            ],
-            "text": ""
-        },
-        "context": [
-            {
-                "key": "setting.terminal_view",
-                "operator": "equal",
-                "operand": true
-            },
-            {
-                "key": "sublime_term.keys"
-            },
-            {
-                "key": "overlay_visible",
-                "operator": "equal",
-                "operand": false
-            }
-        ]
-    },
-    {
-        "keys": [
             "alt+shift+home"
         ],
         "command": "terminal_key",
@@ -1887,35 +1800,6 @@
             "key": "end",
             "mods": [
                 "alt"
-            ],
-            "text": ""
-        },
-        "context": [
-            {
-                "key": "setting.terminal_view",
-                "operator": "equal",
-                "operand": true
-            },
-            {
-                "key": "sublime_term.keys"
-            },
-            {
-                "key": "overlay_visible",
-                "operator": "equal",
-                "operand": false
-            }
-        ]
-    },
-    {
-        "keys": [
-            "ctrl+shift+end"
-        ],
-        "command": "terminal_key",
-        "args": {
-            "key": "end",
-            "mods": [
-                "ctrl",
-                "shift"
             ],
             "text": ""
         },
@@ -2428,34 +2312,6 @@
                 "ctrl"
             ],
             "text": "e"
-        },
-        "context": [
-            {
-                "key": "setting.terminal_view",
-                "operator": "equal",
-                "operand": true
-            },
-            {
-                "key": "sublime_term.keys"
-            },
-            {
-                "key": "overlay_visible",
-                "operator": "equal",
-                "operand": false
-            }
-        ]
-    },
-    {
-        "keys": [
-            "ctrl+f"
-        ],
-        "command": "terminal_key",
-        "args": {
-            "key": "f",
-            "mods": [
-                "ctrl"
-            ],
-            "text": "f"
         },
         "context": [
             {

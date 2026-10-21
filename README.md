@@ -15,7 +15,7 @@ the text remains selectable and searchable.
 - Hides the minimap while a terminal view is active, then restores it
 - One shared, theme-syncable color scheme
 - 16/256-color rendering; 24-bit colors map to the nearest palette color
-- Scrollback with mouse-wheel and keyboard navigation
+- Native Sublime Text scrollback: scrollbar, Find and full-buffer selection
 - Native Sublime Text selection, copy and paste
 - Bracketed paste
 - OSC 52 clipboard writes (works with `tmux set-clipboard on`)
@@ -94,10 +94,11 @@ The default key bindings only apply while a terminal view has focus:
 | `Ctrl+Shift+V`, `Shift+Insert` | Paste |
 | `Ctrl+C` | Send SIGINT |
 | `Ctrl+Shift+P` | Sublime Text command palette |
+| `Ctrl+F` | Search the terminal buffer and scrollback |
 | `Shift+PageUp` / `Shift+PageDown` | Scroll back / forward |
 | `Ctrl+Shift+Up` / `Ctrl+Shift+Down` | Scroll one row |
 | `Ctrl+Shift+Home` / `Ctrl+Shift+End` | Scroll to top / bottom |
-| Mouse wheel | Scroll terminal (or forward to a mouse-aware app) |
+| Mouse wheel | Scroll the terminal buffer (or forward to a mouse-aware app) |
 | `Shift` + drag | Select text even when the app captures the mouse |
 | `Shift` + right-click | Open the Sublime context menu instead of forwarding the click |
 | Click on the input line | Move the terminal cursor to the clicked position |
@@ -105,10 +106,14 @@ The default key bindings only apply while a terminal view has focus:
 | Hover an existing file path | Underline it; `Ctrl` / `Cmd` + click opens it |
 
 `Ctrl+Shift+C` and `Ctrl+Shift+V` can be remapped in your user keymap. On
-macOS, `Cmd+C` and `Cmd+V` are also bound.
+macOS, `Cmd+C` and `Cmd+V` are also bound. `Ctrl+F` is reserved for Sublime
+Text's Find panel and is not forwarded to the PTY.
 
 Selecting text uses Sublime's native selection. Copying trims trailing spaces
-from each selected line.
+from each selected line. Scrollback is mirrored into the Sublime buffer, so the
+editor scrollbar, `Ctrl+F`, incremental find and selections work across the
+entire history. Alternate-screen applications such as `micro`, `vim` and `less`
+hide the scrollback while they are active, just like a normal terminal.
 
 ## tmux
 
@@ -191,10 +196,10 @@ shell) closes the terminal tab or panel automatically.
 - `term/commands.py`, `term/listeners.py`, `term/keys.py` — commands and input
   integration.
 
-The screen is rendered as one line per terminal row. The whole viewport is
-redrawn only when its content changes. Scrollback is handled by libghostty's
-viewport; scrolling does not require keeping a second copy of the screen in
-Python.
+The screen is rendered as one line per terminal row. Live rows are updated in
+place; lines that scroll out of the viewport are appended to Sublime's buffer
+so native scrolling, Find and selection cover the whole scrollback. The
+alternate screen is rendered without the primary screen's history.
 
 ## License
 

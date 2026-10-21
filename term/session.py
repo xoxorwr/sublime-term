@@ -54,6 +54,12 @@ class TerminalSession:
         self._click_token = 0
         self._hover_key = "sublime_term_link"
         self._hover_point = None
+        self._history_rows = 0
+        self._history_size = None
+        self._follow_output = True
+        self._force_follow = False
+        self._pre_viewport = None
+        self._pre_history = 0
         self._configure_view()
         self._create_terminal()
         self._start_pty()
@@ -235,9 +241,10 @@ class TerminalSession:
         if not frame or not frame.lines:
             return
         row, click_col = self.view.rowcol(self._click_point)
-        if row < 0 or row >= len(frame.lines) or frame.cursor_line != row:
+        live_row = row - self.renderer.history_applied
+        if live_row < 0 or live_row >= len(frame.lines) or frame.cursor_line != live_row:
             return
-        line = frame.lines[row]
+        line = frame.lines[live_row]
         span = line.cursor_span
         if not span:
             return
@@ -265,10 +272,13 @@ class TerminalSession:
         )
         self.renderer.set_theme(foreground, background, foreground)
         term_theme.reload(self.view)
-        sublime.set_timeout(
-            lambda: self.render() if not self.closed else None,
-            120,
-        )
+        sublime.set_timeout(self._repaint_theme, 120)
+
+    def _repaint_theme(self):
+        if self.closed or not self.view.is_valid():
+            return
+        self.renderer.repaint_history(self.view)
+        self.render()
 
     def _create_terminal(self):
         self.cols, self.rows = self._measure()
@@ -423,6 +433,42 @@ class TerminalSession:
         elif self.view.is_valid():
             self.view.close()
 
+    def _is_at_bottom(self):
+        try:
+            pos = self.view.viewport_position()
+            viewport = self.view.viewport_extent()
+            layout = self.view.layout_extent()
+        except Exception:
+            return True
+        return pos[1] + viewport[1] >= layout[1] - self._cell_height() * 2
+
+    def _capture_history(self, screen):
+        if screen.active_screen != 0 or not screen.scrollbar:
+            return
+        size = (screen.cols, screen.rows)
+        if self._history_size != size:
+            if self._history_rows:
+                self.renderer.clear_history()
+            self._history_rows = 0
+            self._history_size = size
+        scrollbar = screen.scrollbar
+        length = int(scrollbar.len or screen.rows)
+        total = int(scrollbar.total)
+        available = max(0, total - length)
+        if available < self._history_rows:
+            self.renderer.clear_history()
+            self._history_rows = 0
+        elif available > self._history_rows:
+            count = min(available - self._history_rows, 2000)
+            rows = self.terminal.read_rows(self._history_rows, count)
+            if rows:
+                self.renderer.add_history(self.renderer.build_rows(rows).lines)
+                self._history_rows += len(rows)
+                if self._history_rows < available:
+                    sublime.set_timeout(
+                        lambda: self.render() if not self.closed else None, 1
+                    )
+
     def render(self):
         if self.closed or not self.terminal:
             return
@@ -432,6 +478,9 @@ class TerminalSession:
             self.terminal.write(b"\x1b[?2048l")
         self._previous_screen = screen.active_screen
         self.active_screen = screen.active_screen
+        if self.renderer.set_history_visible(screen.active_screen == 0):
+            self._force_follow = True
+        self._capture_history(screen)
         if screen.mouse != self._last_mouse:
             self._last_mouse = screen.mouse
             self.view.settings().set("terminal_mouse_tracking", screen.mouse)
@@ -441,34 +490,71 @@ class TerminalSession:
             self.view.set_name(title)
         frame = self.renderer.build(screen)
         self.pending_frame = frame
+        self._follow_output = self._is_at_bottom()
+        try:
+            self._pre_viewport = self.view.viewport_position()
+        except Exception:
+            self._pre_viewport = None
+        self._pre_history = self.renderer.history_applied
         self.view.run_command("terminal_render", {"session_id": self.view.id()})
         if self._hover_point is not None:
             self._paint_hover()
 
     def apply_frame(self, view, edit):
         if self.pending_frame is not None and not self.closed:
-            self.renderer.apply(view, edit, self.pending_frame)
+            inserted = self.renderer.apply(view, edit, self.pending_frame)
+            follow = self._follow_output or self._force_follow
+            if follow:
+                view.show(view.size())
+            elif inserted and self._pre_viewport is not None:
+                try:
+                    top = view.viewport_to_text((0, 0))
+                    row = view.rowcol(top)[0]
+                    if row >= self._pre_history:
+                        x, y = self._pre_viewport
+                        view.set_viewport_position(
+                            (x, y + inserted * self._cell_height()), False
+                        )
+                except Exception:
+                    pass
+            self._force_follow = False
+
+    def _max_viewport_y(self):
+        try:
+            layout = self.view.layout_extent()
+            viewport = self.view.viewport_extent()
+            return max(0.0, layout[1] - viewport[1])
+        except Exception:
+            return 0.0
 
     def scroll(self, delta):
-        if self.closed or not self.terminal:
+        if self.closed:
             return
-        self.terminal.scroll(delta)
-        self.terminal.update()
-        self.render()
+        try:
+            pos = self.view.viewport_position()
+        except Exception:
+            return
+        y = pos[1] + delta * self._cell_height()
+        y = max(0.0, min(y, self._max_viewport_y()))
+        self.view.set_viewport_position((pos[0], y), False)
 
     def scroll_to(self, where):
-        if self.closed or not self.terminal:
+        if self.closed:
             return
-        self.terminal.scroll_to(where)
-        self.terminal.update()
-        self.render()
+        if where == ghostty.SCROLL_TOP:
+            self.view.set_viewport_position((0.0, 0.0), False)
+        else:
+            self.view.set_viewport_position((0.0, self._max_viewport_y()), False)
 
     def scroll_row(self, row):
-        if self.closed or not self.terminal:
+        if self.closed:
             return
-        self.terminal.scroll_row(row)
-        self.terminal.update()
-        self.render()
+        y = max(0.0, min(row * self._cell_height(), self._max_viewport_y()))
+        try:
+            pos = self.view.viewport_position()
+        except Exception:
+            pos = (0.0, 0.0)
+        self.view.set_viewport_position((pos[0], y), False)
 
     def _update_scroll_status(self):
         try:
@@ -483,13 +569,15 @@ class TerminalSession:
             text = "{} / {}".format(scroll.offset, max(0, scroll.total - scroll.len))
         if text != self._last_scroll_status:
             self._last_scroll_status = text
-            self.view.set_status("sublime_term_scroll", text)
+            self.view.set_status("sublime_term_scroll", "")
 
     def send(self, data: bytes, scroll=True):
         if self.closed or not data or not self.terminal:
             return
         if scroll:
             self.terminal.scroll_to(ghostty.SCROLL_BOTTOM)
+            if not self._is_at_bottom():
+                self.view.show(self.view.size())
         if self.pty:
             self.pty.write(data)
 
@@ -511,6 +599,9 @@ class TerminalSession:
         frame = self.pending_frame
         if not frame or not frame.lines:
             return (0, 0)
+        row -= self.renderer.history_applied
+        if row < 0:
+            return (None, None)
         row = max(0, min(row, len(frame.lines) - 1))
         line = frame.lines[row]
         if line.text_to_cell:
@@ -524,7 +615,7 @@ class TerminalSession:
         self.last_mouse_cell = self.mouse_cell(point)
 
     def send_mouse(self, action, button, x, y, mods=0):
-        if not self.terminal or not self._last_mouse:
+        if not self.terminal or not self._last_mouse or x is None:
             return
         if action == ghostty.MOUSE_ACTION_PRESS and button in (1, 2, 3):
             self._mouse_buttons.add(button)
@@ -562,12 +653,16 @@ class TerminalSession:
     def clear_scrollback(self):
         if self.closed or not self.terminal:
             return
+        self.renderer.clear_history()
+        self._history_rows = 0
         self.terminal.write(b"\x1b[3J")
         self.render()
 
     def reset(self):
         if self.closed or not self.terminal:
             return
+        self.renderer.clear_history()
+        self._history_rows = 0
         self.terminal.reset()
         self.render()
 

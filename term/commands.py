@@ -225,6 +225,8 @@ class TerminalMouseCommand(sublime_plugin.TextCommand):
                 except Exception:
                     pass
             grid_x, row = session.last_mouse_cell
+            if grid_x is None:
+                return
             session.send_mouse(ghostty.MOUSE_ACTION_PRESS, button, grid_x, row, 0)
             return
         if not tracking or not event:
@@ -235,6 +237,8 @@ class TerminalMouseCommand(sublime_plugin.TextCommand):
             return
         grid_x, row = session.mouse_cell(point)
         session.last_mouse_cell = (grid_x, row)
+        if grid_x is None:
+            return
         mods = keys.mods_from_names(event.get("modifiers"))
         act = {
             "press": ghostty.MOUSE_ACTION_PRESS,

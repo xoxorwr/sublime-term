@@ -894,6 +894,26 @@ class Terminal:
         l.ghostty_render_state_clean(self._render)
         return screen
 
+    def read_rows(self, start: int, count: int):
+        rows = []
+        if count <= 0 or self._closed:
+            return rows
+        try:
+            while count > 0:
+                self.scroll_row(start)
+                self.update()
+                screen = self.read_screen()
+                take = screen.lines[: min(count, len(screen.lines))]
+                if not take:
+                    break
+                rows.extend(take)
+                start += len(take)
+                count -= len(take)
+        finally:
+            self.scroll_to(SCROLL_BOTTOM)
+            self.update()
+        return rows
+
     def update(self):
         if not self._closed:
             self.l.ghostty_render_state_update(self._render, self._handle)
