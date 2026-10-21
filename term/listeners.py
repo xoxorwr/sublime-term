@@ -62,6 +62,18 @@ class TerminalEventListener(sublime_plugin.EventListener):
             if window:
                 manager.restore_minimap(window)
 
+    def on_selection_modified(self, view):
+        if not view.settings().get("terminal_view"):
+            return
+        session = manager.get(view.id())
+        if not session:
+            return
+        selections = view.sel()
+        if len(selections) == 1 and not selections[0].empty():
+            selection = selections[0]
+            head = selection.b - 1 if selection.b > selection.a else selection.b
+            session.update_drag(selection.a, head)
+
     def on_deactivated(self, view):
         if view.settings().get("terminal_view"):
             session = manager.get(view.id())
@@ -74,6 +86,7 @@ class TerminalEventListener(sublime_plugin.EventListener):
             session = manager.get(view.id())
             if session:
                 session.update_hover(point)
+                session.update_right_hover(point)
 
     def on_modified(self, view):
         if not view.settings().get("terminal_view"):
@@ -105,7 +118,18 @@ class TerminalEventListener(sublime_plugin.EventListener):
                 window.focus_view(view)
             event = args.get("event")
             if event and event.get("button") == 1:
-                session.register_click(event)
+                if view.settings().get("terminal_mouse_tracking"):
+                    try:
+                        point = view.window_to_text((event["x"], event["y"]))
+                    except Exception:
+                        point = None
+                    if point is not None:
+                        was_drag = session._drag_active
+                        session.finish_drag(point)
+                        if not was_drag:
+                            session.register_click(event, point)
+                else:
+                    session.register_click(event)
             return None
         if name == "insert":
             text = args.get("characters", "")

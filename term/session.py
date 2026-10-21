@@ -46,6 +46,8 @@ class TerminalSession:
         self._last_mouse = None
         self._mouse_buttons = set()
         self.last_mouse_cell = (0, 0)
+        self._drag_active = False
+        self._drag_cell = None
         self._exit_scheduled = False
         self.active_screen = 0
         self._previous_screen = 0
@@ -53,6 +55,7 @@ class TerminalSession:
         self._click_token = 0
         self._hover_key = "sublime_term_link"
         self._hover_point = None
+        self._right_hover_point = None
         self._history_rows = 0
         self._history_size = None
         self._last_screen_rows = []
@@ -221,6 +224,7 @@ class TerminalSession:
 
     def clear_hover(self):
         self._hover_point = None
+        self._right_hover_point = None
         try:
             self.view.erase_regions(self._hover_key)
         except Exception:
@@ -231,11 +235,41 @@ class TerminalSession:
         self.update_mouse_cell(point)
         self._paint_hover()
 
-    def register_click(self, event):
+    def _foreground_process_name(self):
+        if not self.pty or self.pty.fd < 0:
+            return ""
+        tcgetpgrp = getattr(os, "tcgetpgrp", None)
+        if tcgetpgrp is None:
+            return ""
         try:
-            point = self.view.window_to_text((event["x"], event["y"]))
+            pgid = tcgetpgrp(self.pty.fd)
+        except OSError:
+            return ""
+        try:
+            with open("/proc/%d/comm" % pgid, "r") as f:
+                return f.read().strip()
+        except OSError:
+            pass
+        try:
+            import subprocess
+
+            return subprocess.check_output(
+                ["ps", "-p", str(pgid), "-o", "comm="],
+                text=True,
+                timeout=0.2,
+            ).strip()
         except Exception:
-            return
+            return ""
+
+    def _foreground_is_tmux(self):
+        return os.path.basename(self._foreground_process_name()).startswith("tmux")
+
+    def register_click(self, event, point=None):
+        if point is None:
+            try:
+                point = self.view.window_to_text((event["x"], event["y"]))
+            except Exception:
+                return
         self._click_token += 1
         token = self._click_token
         self._click_point = point
@@ -243,8 +277,6 @@ class TerminalSession:
 
     def _apply_click(self, token):
         if token != self._click_token or self.closed or not self.terminal:
-            return
-        if self.view.settings().get("terminal_mouse_tracking"):
             return
         if not self.view.is_valid():
             return
@@ -254,7 +286,9 @@ class TerminalSession:
         selections = self.view.sel()
         if len(selections) != 1 or not selections[0].empty():
             return
-        if self.active_screen != 0 or self._click_point is None:
+        if self._click_point is None:
+            return
+        if self.active_screen != 0 and not self._foreground_is_tmux():
             return
         frame = self.pending_frame
         if not frame or not frame.lines:
@@ -632,6 +666,58 @@ class TerminalSession:
 
     def update_mouse_cell(self, point):
         self.last_mouse_cell = self.mouse_cell(point)
+
+    def update_right_hover(self, point):
+        if not self._mouse_buttons or not self.view.settings().get("terminal_mouse_tracking"):
+            return
+        button = 2 if 2 in self._mouse_buttons else 3
+        if button not in self._mouse_buttons:
+            return
+        self._right_hover_point = point
+        cell = self.mouse_cell(point)
+        if cell[0] is None or cell == self.last_mouse_cell:
+            return
+        self.last_mouse_cell = cell
+        self.send_mouse(ghostty.MOUSE_ACTION_MOTION, button, cell[0], cell[1], 0)
+
+    def right_release_point(self, event):
+        point = self._right_hover_point
+        self._right_hover_point = None
+        return point if point is not None else None
+
+    def update_drag(self, anchor, head):
+        if not self.view.settings().get("terminal_mouse_tracking"):
+            return
+        if not self._drag_active:
+            cell = self.mouse_cell(anchor)
+            if cell[0] is None:
+                return
+            self.send_mouse(ghostty.MOUSE_ACTION_PRESS, 1, cell[0], cell[1], 0)
+            self._drag_active = True
+        cell = self.mouse_cell(head)
+        if cell[0] is None or cell == self._drag_cell:
+            return
+        self._drag_cell = cell
+        self.send_mouse(ghostty.MOUSE_ACTION_MOTION, 1, cell[0], cell[1], 0)
+
+    def finish_drag(self, point):
+        if not self.view.settings().get("terminal_mouse_tracking"):
+            return
+        cell = self._drag_cell
+        if cell is None:
+            cell = self.mouse_cell(point)
+        if cell[0] is None:
+            return
+        if not self._drag_active:
+            self.send_mouse(ghostty.MOUSE_ACTION_PRESS, 1, cell[0], cell[1], 0)
+        self.send_mouse(ghostty.MOUSE_ACTION_MOTION, 1, cell[0], cell[1], 0)
+        self.send_mouse(ghostty.MOUSE_ACTION_RELEASE, 1, cell[0], cell[1], 0)
+        self._drag_active = False
+        self._drag_cell = None
+        try:
+            self.view.sel().clear()
+        except Exception:
+            pass
 
     def send_mouse(self, action, button, x, y, mods=0):
         if not self.terminal or not self._last_mouse or x is None:

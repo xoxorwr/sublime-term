@@ -231,15 +231,36 @@ class TerminalMouseCommand(sublime_plugin.TextCommand):
             return
         if not tracking or not event:
             return
-        try:
-            point = self.view.window_to_text((event["x"], event["y"]))
-        except Exception:
+        if action == "release" and button == 1:
+            try:
+                point = self.view.window_to_text((event["x"], event["y"]))
+            except Exception:
+                return
+            session.finish_drag(point)
             return
+        if action == "release" and button in (2, 3):
+            hover = session.right_release_point(event)
+            if hover is not None:
+                point = hover
+            else:
+                try:
+                    point = self.view.window_to_text((event["x"], event["y"]))
+                except Exception:
+                    return
+        else:
+            try:
+                point = self.view.window_to_text((event["x"], event["y"]))
+            except Exception:
+                return
         grid_x, row = session.mouse_cell(point)
         session.last_mouse_cell = (grid_x, row)
         if grid_x is None:
             return
         mods = keys.mods_from_names(event.get("modifiers"))
+        if action == "release" and button in (2, 3):
+            session.send_mouse(
+                ghostty.MOUSE_ACTION_MOTION, button, grid_x, row, mods
+            )
         act = {
             "press": ghostty.MOUSE_ACTION_PRESS,
             "release": ghostty.MOUSE_ACTION_RELEASE,

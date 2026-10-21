@@ -186,16 +186,7 @@
     {
         "button": "button1",
         "count": 1,
-        "press_command": "terminal_mouse",
-        "press_args": {
-            "button": 1,
-            "action": "press"
-        },
-        "command": "terminal_mouse",
-        "args": {
-            "button": 1,
-            "action": "release"
-        },
+        "press_command": "drag_select",
         "context": [
             {
                 "key": "setting.terminal_view",
@@ -247,26 +238,6 @@
         "args": {
             "button": 1,
             "action": "release"
-        },
-        "context": [
-            {
-                "key": "setting.terminal_view",
-                "operator": "equal",
-                "operand": true
-            },
-            {
-                "key": "setting.terminal_mouse_tracking",
-                "operator": "equal",
-                "operand": true
-            }
-        ]
-    },
-    {
-        "button": "button1 drag",
-        "command": "terminal_mouse",
-        "args": {
-            "button": 1,
-            "action": "motion"
         },
         "context": [
             {
@@ -360,26 +331,6 @@
         ]
     },
     {
-        "button": "button2 drag",
-        "command": "terminal_mouse",
-        "args": {
-            "button": 2,
-            "action": "motion"
-        },
-        "context": [
-            {
-                "key": "setting.terminal_view",
-                "operator": "equal",
-                "operand": true
-            },
-            {
-                "key": "setting.terminal_mouse_tracking",
-                "operator": "equal",
-                "operand": true
-            }
-        ]
-    },
-    {
         "button": "button3",
         "count": 1,
         "press_command": "terminal_mouse",
@@ -443,26 +394,6 @@
         "args": {
             "button": 3,
             "action": "release"
-        },
-        "context": [
-            {
-                "key": "setting.terminal_view",
-                "operator": "equal",
-                "operand": true
-            },
-            {
-                "key": "setting.terminal_mouse_tracking",
-                "operator": "equal",
-                "operand": true
-            }
-        ]
-    },
-    {
-        "button": "button3 drag",
-        "command": "terminal_mouse",
-        "args": {
-            "button": 3,
-            "action": "motion"
         },
         "context": [
             {
