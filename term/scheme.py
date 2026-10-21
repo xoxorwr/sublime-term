@@ -41,6 +41,7 @@ def write(path, palette, foreground, background, selection, selection_fg):
         },
         "rules": rules,
     }
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     temp = path + ".tmp"
     with open(temp, "w", encoding="utf-8") as f:
         json.dump(data, f, separators=(",", ":"))

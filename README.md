@@ -122,13 +122,17 @@ through OSC 52 into Sublime Text's clipboard.
 
 On first run the plugin generates the terminal palette from the active Sublime
 color scheme automatically. `Terminal: Sync Color Scheme with Current Theme`
-does the same thing again after you change themes. The palette is saved in
-`Packages/User/sublime_term_theme.json`, so it is restored on later starts.
+does the same thing again after you change themes.
 
-The generated scheme is a normal static resource: it is written only when you
-run the command, not while terminal colors change. If multiple Sublime
-instances use different themes, the most recent sync wins; use the same theme
-in all instances or avoid syncing while instances differ.
+The generated files live outside the repository:
+
+- `Packages/User/SublimeTerm/Terminal.sublime-color-scheme`
+- `Packages/User/sublime_term_theme.json`
+
+The scheme is written only when it is generated or synced, not while terminal
+colors change. If multiple Sublime instances use different themes, the most
+recent sync wins; use the same theme in all instances or avoid syncing while
+instances differ.
 
 ## Settings
 
@@ -167,10 +171,11 @@ shell) closes the terminal tab or panel automatically.
   regions.
 - `term/theme.py` — tracks the active palette, maps colors to region scopes,
   and loads/saves the theme sidecar used by the sync command.
-- `term/scheme.py` — writes the static `Terminal.sublime-color-scheme` from a
-  palette.
+- `term/scheme.py` — writes the generated scheme under
+  `Packages/User/SublimeTerm/`.
 - `term/palette.py` and `scripts/generate-color-scheme.py` — the default
-  256-color palette and a standalone generator for the default scheme.
+  256-color palette and a standalone generator that writes to the User
+  directory.
 - `term/commands.py`, `term/listeners.py`, `term/keys.py` — commands and input
   integration.
 
