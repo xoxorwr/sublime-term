@@ -34,19 +34,19 @@ way to overlay raster images in a text view, so inline images are not drawn.
 
 Put this folder in Sublime Text's `Packages` directory (Preferences → Browse
 Packages…). It must be a directory package, not a `.sublime-package`, because
-the bundled `libghostty-vt.so` is loaded from the filesystem.
+the `libghostty-vt` library is loaded from the filesystem.
 
-The repository includes a prebuilt `libghostty-vt` for x86_64 Linux. To rebuild
-it, or to build on another platform, run:
+No prebuilt library is included. You must build `libghostty-vt` before using
+the plugin:
 
 ```sh
 python3 scripts/build_libghostty.py
 ```
 
 On Windows use `py -3 scripts\build_libghostty.py`. The script builds the
-host platform and installs `libghostty-vt.so` on Linux, `libghostty-vt.dylib`
-on macOS, or `ghostty-vt.dll` on Windows. It requires Zig 0.17.0 and clones
-Ghostty at the pinned commit.
+host platform and installs the library into `lib/`: `libghostty-vt.so` on
+Linux, `libghostty-vt.dylib` on macOS, or `ghostty-vt.dll` on Windows. It
+requires Zig 0.17.0 and clones Ghostty at the pinned commit.
 
 The library build script supports all three platforms. The interactive
 terminal backend currently uses POSIX PTY APIs, so the plugin itself runs on
@@ -169,8 +169,9 @@ Settings live in `sublime_term.sublime-settings`:
 ```
 
 `libghostty_path` may be absolute or relative to `Packages`. If empty, the
-bundled library is tried first, followed by `/opt/ghostty/lib` and the system
-library directories. `SUBLIME_TERM_LIBGHOSTTY` overrides all of them.
+package-local `lib/` directory is tried first, followed by `/opt/ghostty/lib`
+and the system library directories. `SUBLIME_TERM_LIBGHOSTTY` overrides all of
+them.
 
 The terminal font must be monospaced. The view is configured to hide gutter,
 line numbers, folding, wrapping, indent guides and whitespace markers.
@@ -203,5 +204,5 @@ alternate screen is rendered without the primary screen's history.
 
 ## License
 
-MIT for this plugin. `libghostty-vt` and the bundled shared library are MIT
-licensed; see `LICENSES/Ghostty-MIT.txt`.
+MIT for this plugin. `libghostty-vt` and its shared library are MIT licensed;
+see `LICENSES/Ghostty-MIT.txt`.
