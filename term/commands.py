@@ -5,6 +5,7 @@ import sublime
 import sublime_plugin
 
 from . import ghostty, keys, manager
+from . import theme as term_theme
 
 
 def _session(view):
@@ -276,6 +277,21 @@ class TerminalClearScrollbackCommand(sublime_plugin.TextCommand):
         session = _session(self.view)
         if session:
             session.clear_scrollback()
+
+
+class TerminalSyncColorSchemeCommand(sublime_plugin.WindowCommand):
+    def run(self):
+        try:
+            info = sublime.ui_info()
+            term_theme.sync_to_theme(info)
+            for session in manager.all_sessions():
+                session.apply_theme_palette()
+            sublime.status_message("Terminal: color scheme synced with current theme")
+        except Exception as e:
+            sublime.error_message("Sublime Term: could not sync color scheme: {}".format(e))
+            import traceback
+
+            traceback.print_exc()
 
 
 class TerminalOpenSettingsCommand(sublime_plugin.WindowCommand):

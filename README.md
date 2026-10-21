@@ -9,7 +9,7 @@ the text remains selectable and searchable.
 
 - Full VT emulation from Ghostty's `libghostty-vt`
 - Tab terminals and a toggleable bottom-panel terminal
-- Static color scheme, safe with multiple Sublime Text instances
+- One shared, theme-syncable color scheme
 - 16/256-color rendering; 24-bit colors map to the nearest palette color
 - Scrollback with mouse-wheel and keyboard navigation
 - Native Sublime Text selection, copy and paste
@@ -61,6 +61,7 @@ Open the command palette and run one of:
 - `Terminal: Copy`
 - `Terminal: Paste`
 - `Terminal: Clear Scrollback`
+- `Terminal: Sync Color Scheme with Current Theme`
 - `Terminal: Settings`
 
 From the command line:
@@ -117,6 +118,18 @@ outer terminal instead. Using tmux's copy mode with `set-clipboard on` copies
 through OSC 52 into Sublime Text's clipboard.
 
 
+## Theme sync
+
+On first run the plugin generates the terminal palette from the active Sublime
+color scheme automatically. `Terminal: Sync Color Scheme with Current Theme`
+does the same thing again after you change themes. The palette is saved in
+`Packages/User/sublime_term_theme.json`, so it is restored on later starts.
+
+The generated scheme is a normal static resource: it is written only when you
+run the command, not while terminal colors change. If multiple Sublime
+instances use different themes, the most recent sync wins; use the same theme
+in all instances or avoid syncing while instances differ.
+
 ## Settings
 
 Settings live in `sublime_term.sublime-settings`:
@@ -152,12 +165,12 @@ shell) closes the terminal tab or panel automatically.
 - `term/session.py` — per-view terminal session, sizing, lifecycle and input.
 - `term/render.py` — converts the libghostty screen into Sublime text and
   regions.
-- `term/theme.py` — maps foreground/background colors to scopes in the static
-  `Terminal.sublime-color-scheme`. The scheme is immutable at runtime, so any
-  number of Sublime Text instances can share it without clobbering colors.
-- `term/palette.py` and `scripts/generate-color-scheme.py` — the shared
-  256-color palette and the generator for `Terminal.sublime-color-scheme`.
-  Regenerate the scheme after changing the palette.
+- `term/theme.py` — tracks the active palette, maps colors to region scopes,
+  and loads/saves the theme sidecar used by the sync command.
+- `term/scheme.py` — writes the static `Terminal.sublime-color-scheme` from a
+  palette.
+- `term/palette.py` and `scripts/generate-color-scheme.py` — the default
+  256-color palette and a standalone generator for the default scheme.
 - `term/commands.py`, `term/listeners.py`, `term/keys.py` — commands and input
   integration.
 

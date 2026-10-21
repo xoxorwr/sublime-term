@@ -9,12 +9,13 @@ for module_name in [
     del sys.modules[module_name]
 del prefix
 
-from .term import ghostty, manager  # noqa: E402
+from .term import ghostty, manager, theme  # noqa: E402
 from .term.commands import *  # noqa: E402,F401,F403
 from .term.listeners import *  # noqa: E402,F401,F403
 
 
 def plugin_loaded():
+    theme.ensure_initialized()
     if not ghostty.available():
         print("sublime_term: libghostty-vt not available")
 

@@ -10,7 +10,6 @@ from . import ghostty, keys
 from .pty import PtyProcess
 from .render import Renderer
 from . import theme as term_theme
-from .palette import DEFAULT_BG, DEFAULT_FG
 
 VERSION = "1.0.0"
 CONTROL_RE = re.compile(r"[\x00-\x1f\x7f]")
@@ -66,6 +65,7 @@ class TerminalSession:
         return os.getcwd()
 
     def _configure_view(self):
+        term_theme.ensure_initialized()
         view = self.view
         settings = view.settings()
         view.set_scratch(True)
@@ -115,13 +115,31 @@ class TerminalSession:
         for key, value in values.items():
             settings.set(key, value)
         term_theme.apply(view)
-        self.renderer.set_theme(DEFAULT_FG, DEFAULT_BG, DEFAULT_FG)
+        self.renderer.set_theme(term_theme.default_fg(), term_theme.default_bg(), term_theme.default_fg())
 
     def after_show(self):
         if self.closed:
             return
         self.refresh_size(force=True)
         self.render()
+
+    def apply_theme_palette(self):
+        if self.closed or not self.terminal:
+            return
+        foreground = term_theme.default_fg()
+        background = term_theme.default_bg()
+        self.terminal.set_colors(
+            foreground=foreground,
+            background=background,
+            cursor=foreground,
+            palette=term_theme.PALETTE_256,
+        )
+        self.renderer.set_theme(foreground, background, foreground)
+        term_theme.reload(self.view)
+        sublime.set_timeout(
+            lambda: self.render() if not self.closed else None,
+            120,
+        )
 
     def _create_terminal(self):
         self.cols, self.rows = self._measure()
@@ -139,9 +157,9 @@ class TerminalSession:
             scrollback_bytes=self.settings.get("scrollback_bytes") or 32 * 1024 * 1024,
         )
         self.terminal.set_colors(
-            foreground=DEFAULT_FG,
-            background=DEFAULT_BG,
-            cursor=DEFAULT_FG,
+            foreground=term_theme.default_fg(),
+            background=term_theme.default_bg(),
+            cursor=term_theme.default_fg(),
             palette=term_theme.PALETTE_256,
         )
 

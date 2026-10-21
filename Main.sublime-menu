@@ -50,6 +50,10 @@
                     {
                         "caption": "Close",
                         "command": "terminal_close"
+                    },
+                    {
+                        "caption": "Sync Color Scheme with Current Theme",
+                        "command": "terminal_sync_color_scheme"
                     }
                 ]
             }
