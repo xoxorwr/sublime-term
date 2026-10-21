@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ctypes as C
+import glob
 import os
 from ctypes import (
     POINTER,
@@ -238,14 +239,28 @@ def _candidate_paths():
                 configured = os.path.join(sublime.packages_path(), configured)
             yield configured
         here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        yield os.path.join(here, "lib", "libghostty-vt.so")
-        yield os.path.join(here, "lib", "libghostty-vt.so.0")
+        lib_dir = os.path.join(here, "lib")
+        for pattern in (
+            "libghostty-vt.so",
+            "libghostty-vt.so.*",
+            "libghostty-vt.dylib",
+            "libghostty-vt.*.dylib",
+            "ghostty-vt.dll",
+        ):
+            for path in sorted(glob.glob(os.path.join(lib_dir, pattern))):
+                yield path
     except Exception:
         pass
-    yield "/opt/ghostty/lib/libghostty-vt.so.0"
-    yield "/opt/ghostty/lib/libghostty-vt.so"
-    yield "/usr/local/lib/libghostty-vt.so"
-    yield "/usr/lib/libghostty-vt.so"
+    for path in (
+        "/opt/ghostty/lib/libghostty-vt.so.0",
+        "/opt/ghostty/lib/libghostty-vt.so",
+        "/opt/ghostty/lib/libghostty-vt.dylib",
+        "/opt/homebrew/lib/libghostty-vt.dylib",
+        "/usr/local/lib/libghostty-vt.so",
+        "/usr/local/lib/libghostty-vt.dylib",
+        "/usr/lib/libghostty-vt.so",
+    ):
+        yield path
 
 
 _lib = None
@@ -274,7 +289,7 @@ def lib():
     detail = "\n".join(errors) if errors else "no libghostty-vt candidate found"
     raise GhosttyNotAvailable(
         "Could not load libghostty-vt.\n"
-        "Build it with scripts/build-libghostty.sh or set libghostty_path.\n"
+        "Build it with scripts/build_libghostty.py or set libghostty_path.\n"
         + detail
     )
 

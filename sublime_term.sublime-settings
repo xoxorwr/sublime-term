@@ -8,6 +8,5 @@
     "line_height": 1.0,
     "scrollback_lines": 10000,
     "scrollback_bytes": 33554432,
-    "close_on_exit": true,
-    "tmux_session": "main"
+    "close_on_exit": true
 }

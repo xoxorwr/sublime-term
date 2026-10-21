@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import os
-import shutil
 import sublime
 import sublime_plugin
 
@@ -38,7 +37,7 @@ def _expand(window, value):
 
 
 class TerminalOpenCommand(sublime_plugin.WindowCommand):
-    def run(self, cwd=None, command=None, title=None, shell=None, argv=None, tmux_session=None):
+    def run(self, cwd=None, command=None, title=None, shell=None, argv=None):
         options = {}
         if cwd:
             options["cwd"] = _expand(self.window, cwd)
@@ -53,13 +52,6 @@ class TerminalOpenCommand(sublime_plugin.WindowCommand):
             options["shell"] = shell
         if argv:
             options["argv"] = argv
-        if tmux_session:
-            tmux = shutil.which("tmux")
-            if not tmux:
-                sublime.error_message("Sublime Term: tmux was not found in PATH.")
-                return
-            options["argv"] = [tmux, "new-session", "-A", "-s", tmux_session]
-            options["title"] = "tmux: " + tmux_session
         manager.create(self.window, options)
 
     def is_enabled(self):
@@ -104,37 +96,6 @@ class TerminalRunCommand(sublime_plugin.WindowCommand):
 
     def is_enabled(self):
         return ghostty.available()
-
-
-class TerminalTmuxCommand(sublime_plugin.WindowCommand):
-    def run(self, session=None, cwd=None):
-        if not shutil.which("tmux"):
-            sublime.error_message("Sublime Term: tmux was not found in PATH.")
-            return
-        cwd = _expand(self.window, cwd) if cwd else _window_cwd(self.window)
-        if session is None:
-            name = "main"
-
-            def done(value):
-                if value.strip():
-                    self._open(cwd, value.strip())
-
-            self.window.show_input_panel("tmux session:", name, done, None, None)
-        else:
-            self._open(cwd, session)
-
-    def _open(self, cwd, name):
-        manager.create(
-            self.window,
-            {
-                "cwd": cwd,
-                "argv": [shutil.which("tmux"), "new-session", "-A", "-s", name],
-                "title": "tmux: " + name,
-            },
-        )
-
-    def is_enabled(self):
-        return ghostty.available() and bool(shutil.which("tmux"))
 
 
 class TerminalRestartCommand(sublime_plugin.TextCommand):

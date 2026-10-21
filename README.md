@@ -31,14 +31,21 @@ Put this folder in Sublime Text's `Packages` directory (Preferences → Browse
 Packages…). It must be a directory package, not a `.sublime-package`, because
 the bundled `libghostty-vt.so` is loaded from the filesystem.
 
-The repository includes `lib/libghostty-vt.so` for x86_64 Linux. On another
-architecture, or to rebuild against a newer Ghostty, run:
+The repository includes a prebuilt `libghostty-vt` for x86_64 Linux. To rebuild
+it, or to build on another platform, run:
 
 ```sh
-./scripts/build-libghostty.sh
+python3 scripts/build_libghostty.py
 ```
 
-This requires Zig 0.17.0 and clones Ghostty at the pinned commit.
+On Windows use `py -3 scripts\build_libghostty.py`. The script builds the
+host platform and installs `libghostty-vt.so` on Linux, `libghostty-vt.dylib`
+on macOS, or `ghostty-vt.dll` on Windows. It requires Zig 0.17.0 and clones
+Ghostty at the pinned commit.
+
+The library build script supports all three platforms. The interactive
+terminal backend currently uses POSIX PTY APIs, so the plugin itself runs on
+Linux and macOS.
 
 ## Usage
 
@@ -49,7 +56,6 @@ Open the command palette and run one of:
 - `Terminal: Toggle Panel`
 - `Terminal: Close Panel`
 - `Terminal: Run Command…`
-- `Terminal: New tmux Session…`
 - `Terminal: Restart`
 - `Terminal: Close`
 - `Terminal: Copy`
@@ -110,11 +116,6 @@ tracking. Wheel scrolling enters tmux copy mode. Shift+wheel always scrolls the
 outer terminal instead. Using tmux's copy mode with `set-clipboard on` copies
 through OSC 52 into Sublime Text's clipboard.
 
-`Terminal: New tmux Session…` creates or attaches to a named session with:
-
-```sh
-tmux new-session -A -s <name>
-```
 
 ## Settings
 

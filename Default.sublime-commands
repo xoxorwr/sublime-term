@@ -20,10 +20,6 @@
         "command": "terminal_run"
     },
     {
-        "caption": "Terminal: New tmux Session\u2026",
-        "command": "terminal_tmux"
-    },
-    {
         "caption": "Terminal: Restart",
         "command": "terminal_restart"
     },

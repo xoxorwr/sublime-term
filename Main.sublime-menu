@@ -26,10 +26,6 @@
                         "command": "terminal_run"
                     },
                     {
-                        "caption": "New tmux Session\u2026",
-                        "command": "terminal_tmux"
-                    },
-                    {
                         "caption": "-"
                     },
                     {
