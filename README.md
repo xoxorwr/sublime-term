@@ -26,6 +26,7 @@ the text remains selectable and searchable.
 - Focus in/out events
 - Command invocation from the palette or the command line
 - Clickable file paths, including `path:line` and `path:line:column`
+- Falls back to searching project root folders for unresolved filenames
 
 Kitty graphics sequences are parsed by libghostty-vt, but Sublime Text has no
 way to overlay raster images in a text view, so inline images are not drawn.
@@ -102,7 +103,7 @@ The default key bindings only apply while a terminal view has focus:
 | `Shift` + drag | Select text even when the app captures the mouse |
 | `Shift` + right-click | Open the Sublime context menu instead of forwarding the click |
 | Click on the input line | Move the terminal cursor to the clicked position |
-| `Ctrl` / `Cmd` + click a path | Open the file, optionally at `:line` or `:line:column` |
+| `Ctrl` / `Cmd` + click a path | Open the file, optionally at `:line` or `:line:column`; unresolved filenames are searched under project roots |
 | Hover an existing file path | Underline it; `Ctrl` / `Cmd` + click opens it |
 
 `Ctrl+Shift+C` and `Ctrl+Shift+V` can be remapped in your user keymap. On
@@ -159,9 +160,9 @@ Settings live in `sublime_term.sublime-settings`:
 {
     "libghostty_path": "",
     "shell": "",
-    "font_face": "monospace",
-    "font_size": 12,
-    "line_height": 1.0,
+    "font_face": "",
+    "font_size": 0,
+    "line_height": 0,
     "scrollback_lines": 10000,
     "scrollback_bytes": 33554432,
     "close_on_exit": true
@@ -173,8 +174,10 @@ package-local `lib/` directory is tried first, followed by `/opt/ghostty/lib`
 and the system library directories. `SUBLIME_TERM_LIBGHOSTTY` overrides all of
 them.
 
-The terminal font must be monospaced. The view is configured to hide gutter,
-line numbers, folding, wrapping, indent guides and whitespace markers.
+The terminal uses the editor's `font_face`, `font_size` and `line_height` by
+default. Set these values in `sublime_term.sublime-settings` only to override
+the editor font. The view is configured to hide gutter, line numbers, folding,
+wrapping, indent guides and whitespace markers.
 
 When `close_on_exit` is true, running `exit` (or otherwise terminating the
 shell) closes the terminal tab or panel automatically.

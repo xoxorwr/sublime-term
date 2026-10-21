@@ -148,6 +148,12 @@ class TerminalSession:
         self.refresh_size(force=True)
         self.render()
 
+    def search_roots(self):
+        window = self.view.window()
+        if not window:
+            return []
+        return window.folders()
+
     def search_cwds(self):
         cwds = []
         if self.terminal:
@@ -172,7 +178,7 @@ class TerminalSession:
             column = point - line.begin()
         except Exception:
             return None
-        match = paths.find_at(text, column, self.search_cwds())
+        match = paths.find_at(text, column, self.search_cwds(), self.search_roots())
         if not match:
             return None
         return line, match
