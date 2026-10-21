@@ -24,6 +24,7 @@ the text remains selectable and searchable.
 - Alternate screen, reflow on resize, cursor styles, window titles
 - Focus in/out events
 - Command invocation from the palette or the command line
+- Clickable file paths, including `path:line` and `path:line:column`
 
 Kitty graphics sequences are parsed by libghostty-vt, but Sublime Text has no
 way to overlay raster images in a text view, so inline images are not drawn.
@@ -99,6 +100,8 @@ The default key bindings only apply while a terminal view has focus:
 | `Shift` + drag | Select text even when the app captures the mouse |
 | `Shift` + right-click | Open the Sublime context menu instead of forwarding the click |
 | Click on the input line | Move the terminal cursor to the clicked position |
+| `Ctrl` / `Cmd` + click a path | Open the file, optionally at `:line` or `:line:column` |
+| Hover an existing file path | Underline it; `Ctrl` / `Cmd` + click opens it |
 
 `Ctrl+Shift+C` and `Ctrl+Shift+V` can be remapped in your user keymap. On
 macOS, `Cmd+C` and `Cmd+V` are also bound.
@@ -120,8 +123,9 @@ set -as terminal-features 'xterm*:extkeys'
 Mouse clicks, drags and wheel events are forwarded when tmux enables mouse
 tracking. Wheel scrolling enters tmux copy mode. Shift+wheel always scrolls the
 outer terminal instead. Shift+right-click opens Sublime's context menu instead
-of the application menu. Clicking the current input line repositions the shell
-cursor when the application is not capturing the mouse. Using tmux's copy mode
+of the application menu. Ctrl/Cmd+click opens file paths in output, and the
+path is underlined on hover. Clicking the current input line repositions the
+shell cursor when the application is not capturing the mouse. Using tmux's copy mode
 with `set-clipboard on` copies through OSC 52 into Sublime Text's clipboard.
 
 

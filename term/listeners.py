@@ -56,12 +56,13 @@ class TerminalEventListener(sublime_plugin.EventListener):
             session = manager.get(view.id())
             if session:
                 session.send_focus(False)
+                session.clear_hover()
 
     def on_hover(self, view, point, hover_zone):
         if view.settings().get("terminal_view"):
             session = manager.get(view.id())
             if session:
-                session.update_mouse_cell(point)
+                session.update_hover(point)
 
     def on_modified(self, view):
         if not view.settings().get("terminal_view"):

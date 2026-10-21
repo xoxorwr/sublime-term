@@ -6,7 +6,7 @@ import re
 import shutil
 import sublime
 
-from . import ghostty, keys
+from . import ghostty, keys, paths
 from .pty import PtyProcess
 from .render import Renderer
 from . import theme as term_theme
@@ -51,6 +51,8 @@ class TerminalSession:
         self.active_screen = 0
         self._click_point = None
         self._click_token = 0
+        self._hover_key = "sublime_term_link"
+        self._hover_point = None
         self._configure_view()
         self._create_terminal()
         self._start_pty()
@@ -125,6 +127,82 @@ class TerminalSession:
             return
         self.refresh_size(force=True)
         self.render()
+
+    def search_cwds(self):
+        cwds = []
+        if self.terminal:
+            pwd = self.terminal.pwd()
+            if pwd and os.path.isdir(pwd):
+                cwds.append(pwd)
+        if self.pid:
+            try:
+                proc_cwd = os.readlink("/proc/{}/cwd".format(self.pid))
+                if os.path.isdir(proc_cwd):
+                    cwds.append(proc_cwd)
+            except OSError:
+                pass
+        if self.cwd and os.path.isdir(self.cwd):
+            cwds.append(self.cwd)
+        return cwds
+
+    def path_at_point(self, point):
+        try:
+            line = self.view.line(point)
+            text = self.view.substr(line)
+            column = point - line.begin()
+        except Exception:
+            return None
+        match = paths.find_at(text, column, self.search_cwds())
+        if not match:
+            return None
+        return line, match
+
+    def open_path_at_point(self, point):
+        found = self.path_at_point(point)
+        if not found:
+            return False
+        line, match = found
+        target = match.path
+        flags = 0
+        if match.line:
+            target += ":{}".format(match.line)
+            flags = sublime.ENCODED_POSITION
+            if match.column:
+                target += ":{}".format(match.column)
+        window = self.view.window()
+        if not window:
+            return False
+        self.clear_hover()
+        window.open_file(target, flags)
+        return True
+
+    def _paint_hover(self):
+        try:
+            self.view.erase_regions(self._hover_key)
+        except Exception:
+            return
+        if self._hover_point is None:
+            return
+        found = self.path_at_point(self._hover_point)
+        if not found:
+            return
+        line, match = found
+        region = sublime.Region(line.begin() + match.start, line.begin() + match.end)
+        scope = term_theme.underline_scope(term_theme.PALETTE_256[12])
+        flags = sublime.DRAW_NO_FILL | sublime.DRAW_NO_OUTLINE | sublime.DRAW_SOLID_UNDERLINE
+        self.view.add_regions(self._hover_key, [region], scope, flags=flags)
+
+    def clear_hover(self):
+        self._hover_point = None
+        try:
+            self.view.erase_regions(self._hover_key)
+        except Exception:
+            pass
+
+    def update_hover(self, point):
+        self._hover_point = point
+        self.update_mouse_cell(point)
+        self._paint_hover()
 
     def register_click(self, event):
         try:
@@ -354,6 +432,8 @@ class TerminalSession:
         frame = self.renderer.build(screen)
         self.pending_frame = frame
         self.view.run_command("terminal_render", {"session_id": self.view.id()})
+        if self._hover_point is not None:
+            self._paint_hover()
 
     def apply_frame(self, view, edit):
         if self.pending_frame is not None and not self.closed:

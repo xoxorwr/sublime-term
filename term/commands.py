@@ -244,6 +244,24 @@ class TerminalMouseCommand(sublime_plugin.TextCommand):
         session.send_mouse(act, button, grid_x, row, mods)
 
 
+class TerminalOpenPathCommand(sublime_plugin.TextCommand):
+    def want_event(self):
+        return True
+
+    def run(self, edit, event=None):
+        session = _session(self.view)
+        if not session or not event:
+            return
+        try:
+            point = self.view.window_to_text((event["x"], event["y"]))
+        except Exception:
+            return
+        window = self.view.window()
+        if window:
+            window.focus_view(self.view)
+        session.open_path_at_point(point)
+
+
 class TerminalRenderCommand(sublime_plugin.TextCommand):
     def run(self, edit, session_id=0):
         session = manager.get(session_id)

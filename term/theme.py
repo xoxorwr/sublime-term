@@ -54,7 +54,7 @@ def scope(fg, bg):
 
 
 def underline_scope(color):
-    return scope(color, CURRENT_BG)
+    return scope(color, color)
 
 
 def _apply_later(view):
