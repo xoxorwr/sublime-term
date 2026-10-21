@@ -83,6 +83,10 @@ class GhosttyBuffer(Structure):
     _fields_ = [("ptr", POINTER(c_uint8)), ("cap", c_size_t), ("len", c_size_t)]
 
 
+class CellsView(Structure):
+    _fields_ = [("ptr", POINTER(c_uint64)), ("len", c_uint64)]
+
+
 class Cursor(Structure):
     _fields_ = [
         ("size", c_size_t),
@@ -203,7 +207,7 @@ class CellData:
 
 
 class Screen:
-    __slots__ = ("cols", "rows", "lines", "cursor", "colors", "scrollbar", "mouse", "title", "pwd", "active_screen")
+    __slots__ = ("cols", "rows", "lines", "cursor", "colors", "scrollbar", "mouse", "title", "pwd", "active_screen", "dirty_rows")
 
     def __init__(self):
         self.cols = 0
@@ -216,6 +220,7 @@ class Screen:
         self.title = ""
         self.pwd = ""
         self.active_screen = 0
+        self.dirty_rows = []
 
 
 WRITE_PTY_FN = C.CFUNCTYPE(None, c_void_p, c_void_p, POINTER(c_uint8), c_size_t)
@@ -332,6 +337,9 @@ def _bind(l):
     l.ghostty_render_state_row_iterator_next = f(
         "ghostty_render_state_row_iterator_next", [c_void_p], c_bool
     )
+    l.ghostty_render_state_row_iterator_next_dirty = f(
+        "ghostty_render_state_row_iterator_next_dirty", [c_void_p, POINTER(c_uint16)], c_bool
+    )
     l.ghostty_render_state_row_get = f("ghostty_render_state_row_get", [c_void_p, c_int, c_void_p], c_int)
     l.ghostty_render_state_row_cells_new = f(
         "ghostty_render_state_row_cells_new", [c_void_p, POINTER(c_void_p)], c_int
@@ -415,9 +423,11 @@ RENDER_DATA_ROWS = 2
 RENDER_DATA_ROW_ITERATOR = 4
 RENDER_DATA_COLORS = 19
 RENDER_DATA_CURSOR = 18
+RENDER_DATA_DIRTY = 3
 RENDER_DATA_OVERSCAN = 20
 
 ROW_DATA_CELLS = 3
+ROW_DATA_CELLS_RAW = 5
 ROW_DATA_VIEWPORT_Y = 6
 
 CELLS_DATA_RAW = 1
@@ -513,6 +523,11 @@ class Terminal:
         self._render = c_void_p()
         if self.l.ghostty_render_state_new(None, byref(self._render)) != RESULT_SUCCESS:
             raise GhosttyError("failed to create libghostty render state")
+        self._row_cache = []
+        self._row_cache_size = None
+        self._text_buf = C.create_string_buffer(256)
+        self._cells_view = CellsView()
+        self._read_palette = None
         self._rows_iter = c_void_p()
         if (
             self.l.ghostty_render_state_row_iterator_new(None, byref(self._rows_iter))
@@ -562,6 +577,7 @@ class Terminal:
         self.l.ghostty_terminal_set(self._handle, option, byref(s))
 
     def set_colors(self, foreground=None, background=None, cursor=None, palette=None):
+        self._reset_row_cache()
         def put(option, color):
             if color is None:
                 return
@@ -641,6 +657,7 @@ class Terminal:
                 pass
 
     def resize(self, cols: int, rows: int, cell_width: int, cell_height: int):
+        self._reset_row_cache()
         self._cell_width = max(1, int(cell_width))
         self._cell_height = max(1, int(cell_height))
         self.l.ghostty_terminal_resize(
@@ -658,6 +675,7 @@ class Terminal:
 
     def reset(self):
         if not self._closed:
+            self._reset_row_cache()
             self.l.ghostty_terminal_reset(self._handle)
 
     def get(self, kind, ctype):
@@ -683,17 +701,23 @@ class Terminal:
         return bool(config.value) if result == RESULT_SUCCESS else False
 
     def scroll(self, delta: int):
+        self._reset_row_cache()
         behavior = ScrollViewport()
         behavior.tag = SCROLL_DELTA
         behavior.value.delta = C.c_uint64(delta & 0xFFFFFFFFFFFFFFFF).value
         self.l.ghostty_terminal_scroll_viewport(self._handle, behavior)
 
     def scroll_to(self, where: int):
+        before = self.get(DATA_SCROLLBAR, Scrollbar)
         behavior = ScrollViewport()
         behavior.tag = where
         self.l.ghostty_terminal_scroll_viewport(self._handle, behavior)
+        after = self.get(DATA_SCROLLBAR, Scrollbar)
+        if before is None or after is None or before.offset != after.offset:
+            self._reset_row_cache()
 
     def scroll_row(self, row: int):
+        self._reset_row_cache()
         behavior = ScrollViewport()
         behavior.tag = SCROLL_ROW
         behavior.value.row = row
@@ -777,6 +801,109 @@ class Terminal:
             return b""
         return out.raw[: n.value]
 
+    def _read_row(self):
+        cells = self._cells_view
+        if (
+            self.l.ghostty_render_state_row_get(
+                self._rows_iter, ROW_DATA_CELLS_RAW, byref(cells)
+            )
+            != RESULT_SUCCESS
+        ):
+            return []
+        pal = self._read_palette
+        row = []
+        values = cells.ptr[: cells.len]
+        cells_ok = False
+        if any(((value >> 26) & 0xFFFF) or ((value & 0x3) == 1) for value in values):
+            cells_ok = (
+                self.l.ghostty_render_state_row_get(
+                    self._rows_iter, ROW_DATA_CELLS, byref(self._cells)
+                )
+                == RESULT_SUCCESS
+            )
+        for x, value in enumerate(values):
+            cell = CellData()
+            tag = value & 0x3
+            content = (value >> 2) & 0xFFFFFF
+            style_id = (value >> 26) & 0xFFFF
+            wide = (value >> 42) & 0x3
+            if wide == CELL_WIDE_SPACER_TAIL:
+                cell.tail = True
+            if tag == 2:
+                if pal is not None:
+                    cell.bg = pal[content & 0xFF].tuple()
+            elif tag == 3:
+                cell.bg = (
+                    content & 0xFF,
+                    (content >> 8) & 0xFF,
+                    (content >> 16) & 0xFF,
+                )
+            elif tag == 0:
+                cp = content & 0x1FFFFF
+                if cp:
+                    cell.text = chr(cp)
+            elif tag == 1 and cells_ok:
+                self.l.ghostty_render_state_row_cells_select(self._cells, x)
+                buf = GhosttyBuffer(C.cast(self._text_buf, POINTER(c_uint8)), 256, 0)
+                result = self.l.ghostty_render_state_row_cells_get(
+                    self._cells, CELLS_DATA_GRAPHEMES_UTF8, byref(buf)
+                )
+                if result == RESULT_OUT_OF_SPACE:
+                    required = max(1, buf.len)
+                    dynamic = C.create_string_buffer(required)
+                    buf = GhosttyBuffer(C.cast(dynamic, POINTER(c_uint8)), required, 0)
+                    result = self.l.ghostty_render_state_row_cells_get(
+                        self._cells, CELLS_DATA_GRAPHEMES_UTF8, byref(buf)
+                    )
+                    raw = dynamic.raw[: buf.len]
+                else:
+                    raw = self._text_buf.raw[: buf.len]
+                if result == RESULT_SUCCESS and buf.len:
+                    cell.text = raw.decode("utf-8", "replace")
+
+            if style_id and cells_ok:
+                self.l.ghostty_render_state_row_cells_select(self._cells, x)
+                style = Style()
+                style.size = C.sizeof(style)
+                if (
+                    self.l.ghostty_render_state_row_cells_get(
+                        self._cells, CELLS_DATA_STYLE, byref(style)
+                    )
+                    == RESULT_SUCCESS
+                ):
+                    cell.bold = bool(style.bold)
+                    cell.italic = bool(style.italic)
+                    cell.faint = bool(style.faint)
+                    cell.blink = bool(style.blink)
+                    cell.inverse = bool(style.inverse)
+                    cell.invisible = bool(style.invisible)
+                    cell.strikethrough = bool(style.strikethrough)
+                    cell.overline = bool(style.overline)
+                    cell.underline = style.underline
+                    for attr, color in (
+                        ("fg", style.fg_color),
+                        ("bg", style.bg_color),
+                        ("underline", style.underline_color),
+                    ):
+                        if color.tag == 1 and pal is not None:
+                            rgb = pal[color.value.palette].tuple()
+                        elif color.tag == 2:
+                            rgb = color.value.rgb.tuple()
+                        else:
+                            rgb = None
+                        if attr == "fg":
+                            cell.fg = rgb
+                        elif attr == "bg" and cell.bg is None:
+                            cell.bg = rgb
+                        else:
+                            cell.underline_color = rgb
+            row.append(cell)
+        return row
+
+    def _reset_row_cache(self):
+        self._row_cache = []
+        self._row_cache_size = None
+
     def read_screen(self) -> Screen:
         l = self.l
         screen = Screen()
@@ -801,96 +928,48 @@ class Terminal:
         screen.title = self.title()
         screen.pwd = self.pwd()
 
-        lines = []
+        self._read_palette = screen.colors.palette if screen.colors else None
+        dirty_rows = []
+        size = (screen.cols, screen.rows)
+        if self._row_cache_size != size or len(self._row_cache) != screen.rows:
+            self._row_cache_size = size
+            self._row_cache = [[] for _ in range(screen.rows)]
+            dirty_kind = 2
+        else:
+            dirty = c_int()
+            if l.ghostty_render_state_get(self._render, RENDER_DATA_DIRTY, byref(dirty)) == RESULT_SUCCESS:
+                dirty_kind = dirty.value
+            else:
+                dirty_kind = 2
+
+        if dirty_kind == 0:
+            screen.lines = self._row_cache
+            screen.dirty_rows = []
+            return screen
+
         iter_ok = l.ghostty_render_state_get(
             self._render, RENDER_DATA_ROW_ITERATOR, byref(self._rows_iter)
         )
         if iter_ok != RESULT_SUCCESS:
-            screen.lines = lines
+            screen.lines = self._row_cache
             return screen
 
-        text_buf = C.create_string_buffer(256)
-        while l.ghostty_render_state_row_iterator_next(self._rows_iter):
-            if (
-                l.ghostty_render_state_row_get(self._rows_iter, ROW_DATA_CELLS, byref(self._cells))
-                != RESULT_SUCCESS
-            ):
-                lines.append([])
-                continue
-            row = []
-            while l.ghostty_render_state_row_cells_next(self._cells):
-                cell = CellData()
-                buf = GhosttyBuffer(C.cast(text_buf, POINTER(c_uint8)), 256, 0)
-                result = l.ghostty_render_state_row_cells_get(
-                    self._cells, CELLS_DATA_GRAPHEMES_UTF8, byref(buf)
-                )
-                if result == RESULT_OUT_OF_SPACE:
-                    required = max(1, buf.len)
-                    dynamic = C.create_string_buffer(required)
-                    buf = GhosttyBuffer(C.cast(dynamic, POINTER(c_uint8)), required, 0)
-                    result = l.ghostty_render_state_row_cells_get(
-                        self._cells, CELLS_DATA_GRAPHEMES_UTF8, byref(buf)
-                    )
-                    raw = dynamic.raw[: buf.len]
-                else:
-                    raw = text_buf.raw[: buf.len]
-                if result == RESULT_SUCCESS and buf.len:
-                    cell.text = raw.decode("utf-8", "replace")
+        if dirty_kind == 2:
+            y = 0
+            while l.ghostty_render_state_row_iterator_next(self._rows_iter):
+                if y < len(self._row_cache):
+                    self._row_cache[y] = self._read_row()
+                    dirty_rows.append(y)
+                y += 1
+        else:
+            y = c_uint16()
+            while l.ghostty_render_state_row_iterator_next_dirty(self._rows_iter, byref(y)):
+                if y.value < len(self._row_cache):
+                    self._row_cache[y.value] = self._read_row()
+                    dirty_rows.append(y.value)
 
-                raw_cell = c_uint64()
-                if (
-                    l.ghostty_render_state_row_cells_get(
-                        self._cells, CELLS_DATA_RAW, byref(raw_cell)
-                    )
-                    == RESULT_SUCCESS
-                ):
-                    wide = c_int()
-                    if (
-                        l.ghostty_cell_get(raw_cell.value, CELL_DATA_WIDE, byref(wide))
-                        == RESULT_SUCCESS
-                        and wide.value == CELL_WIDE_SPACER_TAIL
-                    ):
-                        cell.tail = True
-
-                style = Style()
-                style.size = C.sizeof(style)
-                if (
-                    l.ghostty_render_state_row_cells_get(
-                        self._cells, CELLS_DATA_STYLE, byref(style)
-                    )
-                    == RESULT_SUCCESS
-                ):
-                    cell.bold = bool(style.bold)
-                    cell.italic = bool(style.italic)
-                    cell.faint = bool(style.faint)
-                    cell.blink = bool(style.blink)
-                    cell.inverse = bool(style.inverse)
-                    cell.invisible = bool(style.invisible)
-                    cell.strikethrough = bool(style.strikethrough)
-                    cell.overline = bool(style.overline)
-                    cell.underline = style.underline
-                    if style.underline_color.tag == 2:
-                        cell.underline_color = style.underline_color.value.rgb.tuple()
-
-                fg = RGB()
-                if (
-                    l.ghostty_render_state_row_cells_get(
-                        self._cells, CELLS_DATA_FG_COLOR, byref(fg)
-                    )
-                    == RESULT_SUCCESS
-                ):
-                    cell.fg = fg.tuple()
-                bg = RGB()
-                if (
-                    l.ghostty_render_state_row_cells_get(
-                        self._cells, CELLS_DATA_BG_COLOR, byref(bg)
-                    )
-                    == RESULT_SUCCESS
-                ):
-                    cell.bg = bg.tuple()
-                row.append(cell)
-            lines.append(row)
-        screen.lines = lines
+        screen.lines = self._row_cache
+        screen.dirty_rows = dirty_rows
         l.ghostty_render_state_clean(self._render)
         return screen
 
@@ -912,6 +991,7 @@ class Terminal:
         finally:
             self.scroll_to(SCROLL_BOTTOM)
             self.update()
+            self._reset_row_cache()
         return rows
 
     def update(self):

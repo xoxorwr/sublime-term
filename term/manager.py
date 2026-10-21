@@ -152,7 +152,7 @@ def _ensure_timer():
     global _scheduled
     if not _scheduled:
         _scheduled = True
-        sublime.set_timeout(_tick, 16)
+        sublime.set_timeout(_tick, 8)
 
 
 def _tick():
@@ -170,6 +170,6 @@ def _tick():
 
             traceback.print_exc()
     if _sessions:
-        sublime.set_timeout(_tick, 16)
+        sublime.set_timeout(_tick, 8)
     else:
         _scheduled = False

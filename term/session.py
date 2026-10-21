@@ -43,7 +43,6 @@ class TerminalSession:
         self.rows = 0
         self._tick_count = 0
         self._last_title = ""
-        self._last_scroll_status = ""
         self._last_mouse = None
         self._mouse_buttons = set()
         self.last_mouse_cell = (0, 0)
@@ -56,6 +55,8 @@ class TerminalSession:
         self._hover_point = None
         self._history_rows = 0
         self._history_size = None
+        self._last_screen_rows = []
+        self._last_active_screen = 0
         self._follow_output = True
         self._force_follow = False
         self._pre_viewport = None
@@ -439,7 +440,6 @@ class TerminalSession:
                     self._force_follow = True
         if dirty:
             self.render()
-        self._update_scroll_status()
 
     def _close_after_exit(self):
         if self.closed:
@@ -463,31 +463,45 @@ class TerminalSession:
         return pos[1] + viewport[1] >= layout[1] - self._cell_height() * 2
 
     def _capture_history(self, screen):
-        if screen.active_screen != 0 or not screen.scrollbar:
+        if not screen.scrollbar:
+            return
+        if screen.active_screen != 0:
+            self._last_active_screen = screen.active_screen
+            self._last_screen_rows = []
             return
         size = (screen.cols, screen.rows)
+        scrollbar = screen.scrollbar
+        length = int(scrollbar.len or screen.rows)
+        available = max(0, int(scrollbar.total) - length)
         if self._history_size != size:
-            if self._history_rows:
+            if self._history_rows or self.renderer.history:
                 self.renderer.clear_history()
             self._history_rows = 0
             self._history_size = size
-        scrollbar = screen.scrollbar
-        length = int(scrollbar.len or screen.rows)
-        total = int(scrollbar.total)
-        available = max(0, total - length)
+            self._last_screen_rows = []
+        if self._last_active_screen != screen.active_screen:
+            self._last_screen_rows = []
+            self._last_active_screen = screen.active_screen
         if available < self._history_rows:
             self.renderer.clear_history()
             self._history_rows = 0
-        elif available > self._history_rows:
-            count = min(available - self._history_rows, 2000)
-            rows = self.terminal.read_rows(self._history_rows, count)
-            if rows:
-                self.renderer.add_history(self.renderer.build_rows(rows).lines)
-                self._history_rows += len(rows)
-                if self._history_rows < available:
-                    sublime.set_timeout(
-                        lambda: self.render() if not self.closed else None, 1
-                    )
+            self._last_screen_rows = []
+        if available > self._history_rows:
+            previous = self._last_screen_rows
+            delta = available - self._history_rows
+            if delta <= len(previous):
+                self.renderer.add_history(self.renderer.build_rows(previous[:delta]).lines)
+                self._history_rows += delta
+            else:
+                rows = self.terminal.read_rows(self._history_rows, min(delta, 2000))
+                if rows:
+                    self.renderer.add_history(self.renderer.build_rows(rows).lines)
+                    self._history_rows += len(rows)
+                    if self._history_rows < available:
+                        sublime.set_timeout(
+                            lambda: self.render() if not self.closed else None, 1
+                        )
+        self._last_screen_rows = list(screen.lines)
 
     def render(self):
         if self.closed or not self.terminal:
@@ -576,21 +590,6 @@ class TerminalSession:
             pos = (0.0, 0.0)
         self.view.set_viewport_position((pos[0], y), False)
 
-    def _update_scroll_status(self):
-        try:
-            scroll = self.terminal.get(ghostty.DATA_SCROLLBAR, ghostty.Scrollbar)
-        except Exception:
-            return
-        if not scroll:
-            return
-        if scroll.total <= scroll.len or scroll.offset >= scroll.total - scroll.len:
-            text = ""
-        else:
-            text = "{} / {}".format(scroll.offset, max(0, scroll.total - scroll.len))
-        if text != self._last_scroll_status:
-            self._last_scroll_status = text
-            self.view.set_status("sublime_term_scroll", "")
-
     def send(self, data: bytes, scroll=True):
         if self.closed or not data or not self.terminal:
             return
@@ -675,6 +674,7 @@ class TerminalSession:
             return
         self.renderer.clear_history()
         self._history_rows = 0
+        self._last_screen_rows = []
         self.terminal.write(b"\x1b[3J")
         self.render()
 
@@ -683,6 +683,7 @@ class TerminalSession:
             return
         self.renderer.clear_history()
         self._history_rows = 0
+        self._last_screen_rows = []
         self.terminal.reset()
         self.render()
 

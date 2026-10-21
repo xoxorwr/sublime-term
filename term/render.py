@@ -50,11 +50,19 @@ class Renderer:
         self.default_fg = (216, 222, 233)
         self.default_bg = (30, 30, 30)
         self.cursor_color = (216, 222, 233)
+        self._line_cache = []
+        self._last_cursor = -1
+        self._last_cursor_x = -1
+        self._cache_colors = None
 
     def set_theme(self, foreground, background, cursor):
         self.default_fg = foreground
         self.default_bg = background
         self.cursor_color = cursor
+        self._line_cache = []
+        self._last_cursor = -1
+        self._last_cursor_x = -1
+        self._cache_colors = None
 
     def build(self, screen) -> Frame:
         if screen.colors:
@@ -68,7 +76,37 @@ class Renderer:
         if cursor and cursor.viewport_has_value and cursor.visible:
             cursor_x = int(cursor.viewport_x)
             cursor_y = int(cursor.viewport_y)
-        return self.build_rows(screen.lines[: screen.rows], cursor_x, cursor_y)
+        rows = screen.lines[: screen.rows]
+        colors = (self.default_fg, self.default_bg, self.cursor_color)
+        dirty = set(getattr(screen, "dirty_rows", range(len(rows))))
+        if (
+            len(self._line_cache) != len(rows)
+            or self._cache_colors != colors
+            or cursor_y != self._last_cursor
+            or cursor_x != self._last_cursor_x
+        ):
+            if len(self._line_cache) != len(rows) or self._cache_colors != colors:
+                dirty.update(range(len(rows)))
+            if 0 <= self._last_cursor < len(rows):
+                dirty.add(self._last_cursor)
+        if 0 <= cursor_y < len(rows):
+            dirty.add(cursor_y)
+        if len(self._line_cache) != len(rows):
+            self._line_cache = [None] * len(rows)
+        lines = list(self._line_cache)
+        for y in dirty:
+            if 0 <= y < len(rows):
+                lines[y] = self._build_line(rows[y], y, cursor_x, cursor_y)
+        frame = Frame()
+        frame.cursor_line = cursor_y if 0 <= cursor_y < len(rows) else -1
+        frame.lines = lines
+        if not frame.lines:
+            frame.lines.append(RenderedLine())
+        self._line_cache = lines
+        self._last_cursor = cursor_y
+        self._last_cursor_x = cursor_x
+        self._cache_colors = colors
+        return frame
 
     def build_rows(self, rows, cursor_x=-1, cursor_y=-1) -> Frame:
         frame = Frame()
@@ -172,6 +210,9 @@ class Renderer:
         self.history_visible = visible
         self.history_applied = 0
         self._history_reset = True
+        self._line_cache = []
+        self._last_cursor = -1
+        self._last_cursor_x = -1
         return True
 
     def repaint_history(self, view: sublime.View):
