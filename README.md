@@ -94,6 +94,8 @@ The default key bindings only apply while a terminal view has focus:
 | `Ctrl+Shift+Home` / `Ctrl+Shift+End` | Scroll to top / bottom |
 | Mouse wheel | Scroll terminal (or forward to a mouse-aware app) |
 | `Shift` + drag | Select text even when the app captures the mouse |
+| `Shift` + right-click | Open the Sublime context menu instead of forwarding the click |
+| Click on the input line | Move the terminal cursor to the clicked position |
 
 `Ctrl+Shift+C` and `Ctrl+Shift+V` can be remapped in your user keymap. On
 macOS, `Cmd+C` and `Cmd+V` are also bound.
@@ -114,8 +116,10 @@ set -as terminal-features 'xterm*:extkeys'
 
 Mouse clicks, drags and wheel events are forwarded when tmux enables mouse
 tracking. Wheel scrolling enters tmux copy mode. Shift+wheel always scrolls the
-outer terminal instead. Using tmux's copy mode with `set-clipboard on` copies
-through OSC 52 into Sublime Text's clipboard.
+outer terminal instead. Shift+right-click opens Sublime's context menu instead
+of the application menu. Clicking the current input line repositions the shell
+cursor when the application is not capturing the mouse. Using tmux's copy mode
+with `set-clipboard on` copies through OSC 52 into Sublime Text's clipboard.
 
 
 ## Theme sync

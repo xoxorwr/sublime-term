@@ -54,6 +54,34 @@
         ]
     },
     {
+        "button": "button2",
+        "modifiers": [
+            "shift"
+        ],
+        "press_command": "context_menu",
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
+        "button": "button3",
+        "modifiers": [
+            "shift"
+        ],
+        "press_command": "context_menu",
+        "context": [
+            {
+                "key": "setting.terminal_view",
+                "operator": "equal",
+                "operand": true
+            }
+        ]
+    },
+    {
         "button": "scroll_up",
         "modifiers": [
             "shift"

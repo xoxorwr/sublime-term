@@ -48,6 +48,9 @@ class TerminalSession:
         self._mouse_buttons = set()
         self.last_mouse_cell = (0, 0)
         self._exit_scheduled = False
+        self.active_screen = 0
+        self._click_point = None
+        self._click_token = 0
         self._configure_view()
         self._create_terminal()
         self._start_pty()
@@ -122,6 +125,52 @@ class TerminalSession:
             return
         self.refresh_size(force=True)
         self.render()
+
+    def register_click(self, event):
+        try:
+            point = self.view.window_to_text((event["x"], event["y"]))
+        except Exception:
+            return
+        self._click_token += 1
+        token = self._click_token
+        self._click_point = point
+        sublime.set_timeout(lambda: self._apply_click(token), 150)
+
+    def _apply_click(self, token):
+        if token != self._click_token or self.closed or not self.terminal:
+            return
+        if self.view.settings().get("terminal_mouse_tracking"):
+            return
+        if not self.view.is_valid():
+            return
+        window = self.view.window()
+        if window:
+            window.focus_view(self.view)
+        selections = self.view.sel()
+        if len(selections) != 1 or not selections[0].empty():
+            return
+        if self.active_screen != 0 or self._click_point is None:
+            return
+        frame = self.pending_frame
+        if not frame or not frame.lines:
+            return
+        row, click_col = self.view.rowcol(self._click_point)
+        if row < 0 or row >= len(frame.lines) or frame.cursor_line != row:
+            return
+        line = frame.lines[row]
+        span = line.cursor_span
+        if not span:
+            return
+        cursor_col = span[0]
+        click_col = max(0, min(click_col, len(line.text)))
+        delta = click_col - cursor_col
+        if delta == 0:
+            return
+        key = "left" if delta < 0 else "right"
+        data = keys.encode(self.terminal, key) * min(abs(delta), 512)
+        if data:
+            self.send(data)
+            sublime.set_timeout(lambda: self.render() if not self.closed else None, 60)
 
     def apply_theme_palette(self):
         if self.closed or not self.terminal:
@@ -294,6 +343,7 @@ class TerminalSession:
             return
         self.terminal.update()
         screen = self.terminal.read_screen()
+        self.active_screen = screen.active_screen
         if screen.mouse != self._last_mouse:
             self._last_mouse = screen.mouse
             self.view.settings().set("terminal_mouse_tracking", screen.mouse)

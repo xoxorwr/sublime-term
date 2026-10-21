@@ -209,6 +209,10 @@ class TerminalMouseCommand(sublime_plugin.TextCommand):
         tracking = self.view.settings().get("terminal_mouse_tracking")
         if not session:
             return
+        if action == "press" and button in (1, 2, 3):
+            window = self.view.window()
+            if window:
+                window.focus_view(self.view)
         if button in (4, 5):
             if not tracking:
                 session.scroll(-3 if button == 4 else 3)

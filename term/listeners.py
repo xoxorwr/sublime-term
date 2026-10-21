@@ -87,6 +87,14 @@ class TerminalEventListener(sublime_plugin.EventListener):
         session = manager.get(view.id())
         if not session:
             return None
+        if name == "drag_select":
+            window = view.window()
+            if window:
+                window.focus_view(view)
+            event = args.get("event")
+            if event and event.get("button") == 1:
+                session.register_click(event)
+            return None
         if name == "insert":
             text = args.get("characters", "")
             text = text.replace("\r\n", "\r").replace("\n", "\r")
