@@ -13,6 +13,9 @@ from . import theme as term_theme
 
 VERSION = "1.0.0"
 CONTROL_RE = re.compile(r"[\x00-\x1f\x7f]")
+SCROLLBAR_GUTTER = 20
+RESIZE_TICKS = 2
+MICRO_RESIZE_TICKS = 6
 
 
 def _clean_title(title: str) -> str:
@@ -64,6 +67,8 @@ class TerminalSession:
         self._force_follow = False
         self._pre_viewport = None
         self._pre_history = 0
+        self._pending_size = None
+        self._pending_size_ticks = 0
         self._configure_view()
         self._create_terminal()
         self._start_pty()
@@ -392,8 +397,8 @@ class TerminalSession:
             width = height = 0
             em = lh = 0
         if width < 20 or height < 20 or em <= 0 or lh <= 0:
-            return 80, 24
-        cols = max(20, int((width - 12) / em))
+            return self.cols or 80, self.rows or 24
+        cols = max(20, int((width - SCROLLBAR_GUTTER) / em))
         rows = max(5, int((height - 8) / lh))
         return cols, rows
 
@@ -413,13 +418,35 @@ class TerminalSession:
         if self.closed or not self.terminal:
             return False
         cols, rows = self._measure()
-        if force or cols != self.cols or rows != self.rows:
-            self.cols, self.rows = cols, rows
-            self.terminal.resize(cols, rows, self._cell_width(), self._cell_height())
-            if self.pty:
-                self.pty.resize(cols, rows)
+        if force:
+            self._pending_size = None
+            self._pending_size_ticks = 0
+            if (cols, rows) == (self.cols, self.rows):
+                return False
+            self._apply_size(cols, rows)
             return True
-        return False
+        if (cols, rows) == (self.cols, self.rows):
+            self._pending_size = None
+            self._pending_size_ticks = 0
+            return False
+        if (cols, rows) == self._pending_size:
+            self._pending_size_ticks += 1
+        else:
+            self._pending_size = (cols, rows)
+            self._pending_size_ticks = 1
+        micro = abs(cols - self.cols) <= 2 and abs(rows - self.rows) <= 1
+        if self._pending_size_ticks < (MICRO_RESIZE_TICKS if micro else RESIZE_TICKS):
+            return False
+        self._pending_size = None
+        self._pending_size_ticks = 0
+        self._apply_size(cols, rows)
+        return True
+
+    def _apply_size(self, cols, rows):
+        self.cols, self.rows = cols, rows
+        self.terminal.resize(cols, rows, self._cell_width(), self._cell_height())
+        if self.pty:
+            self.pty.resize(cols, rows)
 
     def _write_pty(self, data):
         if not self.pty or self.closed:
