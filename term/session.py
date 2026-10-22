@@ -668,10 +668,13 @@ class TerminalSession:
         self.last_mouse_cell = self.mouse_cell(point)
 
     def update_right_hover(self, point):
-        if not self._mouse_buttons or not self.view.settings().get("terminal_mouse_tracking"):
+        if not self.view.settings().get("terminal_mouse_tracking"):
             return
-        button = 2 if 2 in self._mouse_buttons else 3
-        if button not in self._mouse_buttons:
+        if 2 in self._mouse_buttons:
+            button = 2
+        elif 3 in self._mouse_buttons:
+            button = 3
+        else:
             return
         self._right_hover_point = point
         cell = self.mouse_cell(point)

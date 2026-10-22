@@ -85,8 +85,8 @@ class TerminalEventListener(sublime_plugin.EventListener):
         if view.settings().get("terminal_view"):
             session = manager.get(view.id())
             if session:
-                session.update_hover(point)
                 session.update_right_hover(point)
+                session.update_hover(point)
 
     def on_modified(self, view):
         if not view.settings().get("terminal_view"):

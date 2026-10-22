@@ -239,13 +239,11 @@ class TerminalMouseCommand(sublime_plugin.TextCommand):
             session.finish_drag(point)
             return
         if action == "release" and button in (2, 3):
-            hover = session.right_release_point(event)
-            if hover is not None:
-                point = hover
-            else:
-                try:
-                    point = self.view.window_to_text((event["x"], event["y"]))
-                except Exception:
+            try:
+                point = self.view.window_to_text((event["x"], event["y"]))
+            except Exception:
+                point = session.right_release_point(event)
+                if point is None:
                     return
         else:
             try:
